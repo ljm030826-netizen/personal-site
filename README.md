@@ -86,6 +86,10 @@ For near-real-time updates:
     brew install fswatch
     SERVER=root@YOUR_DROPLET_IP ./deploy/watch-training.sh
 
+To run the watcher automatically at login (Mac must be awake):
+
+    SERVER=root@YOUR_DROPLET_IP ./deploy/install-watcher.sh
+
 The watcher debounces changes and regenerates the **current week** report. For the
 weekly PDF routine, the DSH schedule at Monday 08:00 remains the source of truth.
 
