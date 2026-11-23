@@ -10,6 +10,7 @@ export const site = {
   nav: [
     { label: '作品', href: '/projects/' },
     { label: '文章', href: '/blog/' },
+    { label: '日记', href: '/diary/' },
     { label: '照片', href: '/photos/' },
     { label: '简历', href: '/cv/' },
   ],

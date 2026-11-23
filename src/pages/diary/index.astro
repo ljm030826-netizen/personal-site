@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const entries = (await getCollection('diary', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+const years = [...new Set(entries.map((e) => e.data.date.getFullYear()))];
+const byYear = years.map((year) => ({
+  year,
+  items: entries.filter((e) => e.data.date.getFullYear() === year),
+}));
+const fmt = (d: Date) => d.toLocaleDateString('zh-CN', { month: '2-digit', day: '2-digit' });
+---
+<BaseLayout title="日记" description="从朋友圈搬过来的长文，原样保留。">
+  <section class="page-hero shell">
+    <div class="eyebrow">日记 / 从朋友圈搬过来的长文</div>
+    <h1>这些没发<br />朋友圈。</h1>
+    <p class="lede">
+      其实都发过。只是长的那些，发在朋友圈里第二天就沉下去了。我把它们原样搬到这里，不修饰，也懒得修饰——好的坏的都留着。
+    </p>
+  </section>
+  <section class="page-body shell">
+    <div class="diary-list">
+      {byYear.map((group) => (
+        <>
+          <div class="diary-year">{group.year}</div>
+          {group.items.map((entry) => (
+            <a class="diary-row" href={'/diary/' + entry.id + '/'}>
+              <span class="diary-date">{fmt(entry.data.date)}</span>
+              <span class="diary-title">{entry.data.title}</span>
+              <span class="diary-place">{entry.data.place}</span>
+              <span class="post-arrow" aria-hidden="true">↗</span>
+            </a>
+          ))}
+        </>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

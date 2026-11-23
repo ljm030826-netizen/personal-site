@@ -5,15 +5,32 @@ export const training = {
   source: 'Apple Health 导出（Health Auto Export → iCloud）',
   intro:
     '这是我自己写脚本、每周跑一次的训练报告。数据从 Apple Health 导出，跟过去几个月的自己比，结论只给我自己看。这里公开的只有指标，原始数据不上网。',
-  kpis: [
-    { label: '训练次数', value: '3', note: '次 / 本周' },
-    { label: '总时长', value: '3h57', note: '小时 · 分钟' },
-    { label: 'TRIMP', value: '340', note: '较上周 +80%' },
-    { label: 'ACWR', value: '1.55', note: '7 天 / 28 天 · 偏高' },
-    { label: '睡眠', value: '6.8h', note: '睡眠债 4.3h' },
-    { label: '静息心率', value: '63', note: '基线 60 bpm' },
-    { label: 'HRV', value: '40', note: '基线 44 ms' },
-    { label: 'VO2max', value: '42.81', note: '毫升 / 公斤 / 分钟' },
+  load: { week: 340, baseline: 155, unit: 'TRIMP' },
+  acwr: { ratio: 1.55, acute: 46.5, chronic: 29.7 },
+  recovery: {
+    rhr: { week: 63, base: 60, min: 40, max: 80, unit: 'bpm' },
+    hrv: { week: 40, base: 44, min: 20, max: 70, unit: 'ms' },
+    sleep: { week: 6.8, target: 7.75, min: 4, max: 10, unit: 'h' },
+  },
+  mix: [
+    { label: '力量', value: 23, color: '#8fae9b' },
+    { label: '跑步', value: 11, color: '#d0764f' },
+    { label: '骑行', value: 7, color: '#84a7b2' },
+  ],
+  mixTotal: 44,
+  technique: [
+    { label: '步频', value: 167, min: 150, max: 185, target: '170–175', unit: 'spm', ok: false },
+    { label: '垂直振幅比', value: 10.0, min: 6, max: 14, target: '低于 9%', unit: '%', ok: false },
+    { label: '触地时间', value: 273, min: 200, max: 320, target: '低于 260 ms', unit: 'ms', ok: false },
+  ],
+  weekDays: [
+    { day: '周一', date: '11/16', type: 'rest', label: '休息' },
+    { day: '周二', date: '11/17', type: 'rest', label: '休息' },
+    { day: '周三', date: '11/18', type: 'run', label: '5K' },
+    { day: '周四', date: '11/19', type: 'rest', label: '休息' },
+    { day: '周五', date: '11/20', type: 'rest', label: '休息' },
+    { day: '周六', date: '11/21', type: 'ride', label: '长骑 43.1 km' },
+    { day: '周日', date: '11/22', type: 'rest', label: '休息' },
   ],
   summary: [
     '有氧底子不差：5K 连续跑配速 6:08/km；长骑 43.1 km、均速 19.9 km/h；VO2max 42.81。',
@@ -25,7 +42,7 @@ export const training = {
     '11/21 长骑：43.1 km、130 分钟、19.9 km/h、心率 150；表观减速耦联 −9.3%，但前半段爬升更多，不能当作有氧退步。',
     '力量：本周 1 次、77 分钟；基线是 1.7 次/周。心率负荷会低估力量刺激，需要记录组数与重量。',
   ],
-  recovery: [
+  recoveryText: [
     '急性负荷偏高：ACWR 1.55（7 天 / 28 天），已经超过 1.3 的负荷突增参考线。',
     '睡眠债明显：最近 7 天主睡眠平均 6.8 小时，累计睡眠债约 4.3 小时。',
   ],

@@ -1,0 +1,25 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCollection, render } from 'astro:content';
+export async function getStaticPaths() {
+  const entries = await getCollection('diary', ({ data }) => !data.draft);
+  return entries.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { title, date, place } = entry.data;
+const published = date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+const weekday = date.toLocaleDateString('zh-CN', { weekday: 'long' });
+---
+<BaseLayout title={title} description={title}>
+  <article>
+    <header class="detail-hero shell">
+      <div class="eyebrow">日记 / {published} · {weekday}{place ? ' · ' + place : ''}</div>
+      <h1>{title}</h1>
+    </header>
+    <div class="detail-body shell">
+      <div class="prose diary-prose"><Content /></div>
+      <p style="margin-top:40px"><a class="button ghost" href="/diary/">← 全部日记</a></p>
+    </div>
+  </article>
+</BaseLayout>

@@ -12,6 +12,11 @@ const projects = (await getCollection('projects')).sort((a, b) => a.data.order -
 const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime()
 );
+const allDiaries = (await getCollection('diary', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+const diaries = allDiaries.slice(0, 3);
+const fmtDiaryDate = (d: Date) => d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
 <BaseLayout>
   <section class="hero-home shell">
@@ -34,13 +39,13 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
     </div>
     <aside class="portrait-card">
       <img
-        src="https://images.unsplash.com/profile-1728162279899-c522b6e2352a?ixlib=rb-4.1.0&crop=faces&fit=crop&w=600&h=750&q=80&auto=format"
-        alt="Jiaming Luo 的肖像"
-        width="600"
-        height="750"
+        src="https://images.unsplash.com/photo-1740970361786-7d863333c3cf?ixlib=rb-4.1.0&w=900&h=1125&fit=crop&crop=entropy&q=80&auto=format"
+        alt="海边骑摩托车的人"
+        width="900"
+        height="1125"
         loading="eager"
       />
-      <div class="portrait-caption"><span>海尔布隆 / 49.14° N</span><span>欢迎来找我</span></div>
+      <div class="portrait-caption"><span>在路上 / 2026</span><span>不拍自拍</span></div>
     </aside>
   </section>
 
@@ -67,7 +72,24 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
   </section>
 
   <section class="home-section shell">
-    <SectionHead index="03" title="照片" note="拍了不少，挑了些能看的" />
+    <SectionHead index="03" title="日记" note="从朋友圈搬过来的长文，原样保留" />
+    <div class="post-list">
+      {diaries.map((entry) => (
+        <a class="post-row" href={'/diary/' + entry.id + '/'}>
+          <span class="post-date">{fmtDiaryDate(entry.data.date)}</span>
+          <span class="post-title">{entry.data.title}</span>
+          <span class="post-arrow" aria-hidden="true">↗</span>
+        </a>
+      ))}
+    </div>
+    <div class="photo-foot">
+      <span>共 {allDiaries.length} 篇 · 只搬长文</span>
+      <a class="button ghost" href="/diary/">全部日记 <span class="arrow">↗</span></a>
+    </div>
+  </section>
+
+  <section class="home-section shell">
+    <SectionHead index="04" title="照片" note="拍了不少，挑了些能看的" />
     <PhotoGrid photos={photos} limit={6} />
     <div class="photo-foot">
       <span>按浏览量和下载量排的前 25 张</span>

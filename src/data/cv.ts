@@ -1,64 +1,111 @@
 export const cv = {
   headline: '医学信息学学生，喜欢琢磨数据，也拍照。',
   summary:
-    '23 岁，中国出生，现在在德国读医学信息学。关心健康数据从手表和医院里出来之后，怎么变成人能看懂、能用上的东西。习惯把问题拆小、写代码验证，做不完就先睡一觉。',
+    '23 岁，2003 年生于安徽，现居海德堡。在海德堡大学和海尔布隆大学读医学信息学（第 4 学期，均分 1.75）。关心病人数据怎么从临床里出来、变成医生真的能用的东西——在医院里做过两个 HiWi，一个在放射肿瘤学，一个在心内科。',
+  personal: [
+    { label: '出生', value: '2003 年 8 月 · 安徽' },
+    { label: '现居', value: '海德堡' },
+    { label: '国籍', value: '中国' },
+    { label: '语言', value: '中文（母语）· 德语 C1（TestDaF 17）· 英语 B2/C1' },
+    { label: '开放', value: '学生工 · 实习 · 数据 / 医疗 IT 项目' },
+  ],
   education: [
     {
-      period: '2024 — 至今',
+      period: '2024.09 — 至今',
       title: '医学信息学 本科（B.Sc.）',
       org: '海德堡大学 & 海尔布隆大学，德国',
-      detail:
-        '课程覆盖编程、数据库、统计和临床信息系统。平时关注健康数据管道、隐私，还有界面到底好不好用。',
+      detail: '第 4 学期，均分 1.75。重点：Java、C++、数据库系统、医学文档。',
     },
     {
-      period: '2021 — 2024',
-      title: '德语与工商管理',
+      period: '2021.09 — 2024.06',
+      title: '德语语言文学',
       org: '上海外国语大学，中国',
-      detail:
-        '德语、工商管理与跨文化沟通。读了三年，后来决定换条路走，重新申请来德国读现在的专业。',
+      detail: '为了转到医学信息学，提前结束。',
     },
     {
-      period: '2021',
-      title: '高中毕业',
+      period: '2018.09 — 2021.06',
+      title: '高中毕业（Abitur 等效 1.1）',
       org: '芜湖市第一中学，安徽，中国',
-      detail: '理科方向。',
+      detail: '高考 627 / 750；会考全 A。',
     },
   ],
   experience: [
     {
+      period: '2026 — 至今',
+      title: 'HiWi · 院内 AI 集成设计',
+      org: '曼海姆大学医学中心（UMM）· MIISM · 海德堡大学曼海姆医学院',
+      detail:
+        '研究组 "Applied AI in Radiation Oncology"（放射肿瘤学中的实用 AI）。为院内自研 AI 做集成设计：面向实际用 AI 的医生，提供一站式调用、分析、结果返回和病人匹配；做鉴权与医生 / 管理员权限隔离，保护病人数据，符合医疗合规要求。',
+    },
+    {
+      period: '2026 — 至今',
+      title: 'HiWi · 心内科病人数据信息化',
+      org: '海德堡大学附属医院（UKHD）心内科',
+      detail:
+        '把心内科大量术后与长期随访患者数据做成可用的信息系统和可视化界面；已实际部署到院内符合医疗行业规范的 iPad 上稳定运行，供心内科医生做学术研究。',
+    },
+    {
+      period: '2025.04 — 2025.07',
+      title: '兼职 · 销售与客户咨询',
+      org: 'Souvenirshop Eiei 4，海德堡',
+      detail: '接待国际与德国顾客，负责收银与货品。',
+    },
+    {
       period: '2024.12 — 2025.02',
       title: '实习 · 零售运营',
       org: 'Heilbronn Laomi Asia Market，德国',
-      detail:
-        '收银、收货、陈列、给顾客推荐。最大的收获是发现：一家店是安静还是混乱，全在这些小细节上。',
+      detail: '收银、收货、陈列和顾客咨询。',
     },
     {
       period: '2022.07 — 2022.09',
       title: '实习 · 金融市场',
       org: '中国建设银行，上海',
+      detail: '接触外汇、期货期权与贵金属市场。',
+    },
+  ],
+  projects: [
+    {
+      period: '2025.01 — 至今',
+      title: '全球健康数据可视化与指数平台',
+      role: '独立开发（全栈）',
       detail:
-        '接触外汇、期货与期权、贵金属市场。第一次真正面对风险、头寸和数据驱动的决定。',
+        'Java 17 / Spring Boot 3 / MySQL / Vue 3 / ECharts。193 个国家的健康指数清洗与计算、GeoJSON 世界地图和动态图表；用内存索引避免 N+1，用预计算 JSON 降低服务器负载；GitHub Actions 自动部署，服务端保护未解禁数据。一个 Nature Health 子刊论文的技术基础；线上地址仍在禁发期，演示与代码讲解可索取。',
     },
     {
-      period: '2021.07 — 2021.08',
-      title: '兼职 · 门店运营',
-      org: 'Qifentian，中国',
-      detail: '做饮品、理货、收银，也独立看过店。',
+      period: '2025.08 — 2025.11',
+      title: '医院信息系统（OpenMRS）',
+      role: '独立项目',
+      detail:
+        '独立安装配置 OpenMRS；用 MySQL 建立病人数据结构；Java 后端模拟临床工作流；实践 HL7 等医疗标准。',
+    },
+    {
+      period: '2026',
+      title: '训练诊断与这个网站',
+      role: '设计、数据与实现',
+      detail:
+        '读 Apple Health 导出做每周训练报告（Python、SVG、静态 HTML/PDF）；本站用 Astro 构建，部署在 GitHub Pages，照片热链自 Unsplash。',
     },
   ],
   skills: [
     {
-      group: '数据与代码',
-      items: ['Python', 'TypeScript / JavaScript', 'SQL', 'Pandas / NumPy', 'Astro', 'Git & Linux'],
+      group: '编程',
+      items: ['Java（熟练）', 'JavaScript / HTML / CSS', 'SQL', 'Python', 'C++（基础）'],
     },
     {
-      group: '健康与分析',
-      items: ['Apple Health 数据', '训练负荷：TRIMP / ACWR', '数据可视化', '重视隐私的数据管道'],
+      group: 'Web 与框架',
+      items: ['Spring Boot 3.x', 'Spring Data JPA', 'Vue 3', 'Vite', 'ECharts'],
     },
     {
-      group: '语言',
-      items: ['德语 — TestDaF 17', '英语 — 流利', '中文 — 母语'],
+      group: 'DevOps 与运维',
+      items: ['GitHub Actions CI/CD', '服务器部署', '预计算数据架构', 'Git / Maven / Linux'],
+    },
+    {
+      group: '医疗 IT',
+      items: ['HL7', 'DICOM', 'KIS 结构', '医学文档', '病人数据可视化'],
     },
   ],
-  interests: ['骑行', '跑步', '力量训练', '摄影', '排球'],
+  engagement: [
+    '海德堡学生兄弟会（Studentenverbindung）成员，2025 年起：参与社团生活、组织活动、推动文化交流。',
+  ],
+  interests: ['医学数据处理', 'Digital Health', '旅行', '排球', '架子鼓'],
 };
