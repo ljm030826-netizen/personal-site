@@ -1,7 +1,8 @@
 # Jiaming Luo — personal site
 
-A small, fast personal site for a CV, projects, writing, photos, and a **private** training log.
-Built with Astro, served by Caddy on a Hetzner/DigitalOcean VPS.
+A small, fast personal site for a CV, projects, writing, and photos.
+Built with Astro; the public site is deployed to **GitHub Pages** at
+<https://lajiaomian.codes>. The private training log lives outside GitHub Pages.
 
 ## Local development
 
@@ -11,7 +12,7 @@ Built with Astro, served by Caddy on a Hetzner/DigitalOcean VPS.
 
 Open http://localhost:4321.
 
-Build:
+Build / preview:
 
     npm run build
     npm run preview
@@ -29,86 +30,68 @@ Build:
     src/data/cv.ts                 CV content
     src/data/photos.ts             photo captions
     public/photos/                 images (replace placeholders)
-    deploy/                        Caddy, setup, deploy, training sync
+    public/CNAME                   custom domain for GitHub Pages
+    .github/workflows/deploy.yml   build + deploy to GitHub Pages
+    deploy/                        optional Caddy/server scripts for the private log
 
 ## Replace these placeholders
 
-- **Name / email / domain**: src/data/site.ts and astro.config.mjs.
-- **CV**: src/data/cv.ts. I used public-safe details from the CV; no address or phone.
-- **Photos**: replace public/photos/placeholder-*.svg with your own JPG/WebP files, then update src/data/photos.ts.
-- **Portrait**: replace public/photos/portrait.svg.
-- **GitHub / LinkedIn**: add them to src/data/site.ts and the footer if you want.
+- **Name / email / domain**: `src/data/site.ts` and `astro.config.mjs`.
+- **CV**: `src/data/cv.ts`. Public-safe details only; no address or phone.
+- **Photos**: replace `public/photos/placeholder-*.svg` with your own JPG/WebP,
+  then update `src/data/photos.ts`.
+- **Portrait**: replace `public/photos/portrait.svg`.
+- **GitHub / LinkedIn**: add them to `src/data/site.ts` and the footer.
 - **Projects / articles**: add Markdown files with frontmatter; the lists sort themselves.
 
-## Deploy on DigitalOcean with the GitHub Student Pack
+## Deploy the public site (GitHub Pages)
 
-1. Verify the GitHub Student Developer Pack: https://education.github.com/pack
-2. Redeem the **DigitalOcean $200 credit** from the pack.
-3. Create a Droplet:
-   - Region: **Frankfurt (FRA1)**
-   - Image: **Ubuntu 24.04 LTS**
-   - Plan: **Basic $6/month** (1 vCPU / 1 GB / 25 GB) — enough because analysis runs on the Mac
-   - Authentication: **SSH key** (add the public key below)
-   - Hostname: jiaming-site
-4. Add DNS records at your domain registrar (Namecheap .me is free for a year via the pack):
-   - A @ -> your droplet IPv4
-   - A www -> your droplet IPv4
-5. SSH in and run the setup script:
+Static Astro site → GitHub Pages: free HTTPS + CDN, no server to maintain.
 
-       ssh root@YOUR_DROPLET_IP
-       mkdir -p /root/setup
-       # copy deploy/ to /root/setup, then:
-       DOMAIN=your-domain.me TRAINING_USER=karwin bash /root/setup/setup-server.sh
-       # it prompts for the training-page password
+1. Create a **public** GitHub repo and push this folder to `main`.
+   (Pages on the free plan needs a public repo; the content is public anyway.)
+2. Repo → **Settings → Pages → Build and deployment → Source: GitHub Actions**.
+3. Repo → **Settings → Pages → Custom domain**: enter `lajiaomian.codes`
+   (`public/CNAME` already contains it).
+4. DNS at **Name.com** (where the domain is registered):
 
-6. From the Mac, deploy the public site:
+       A      @    185.199.108.153
+       A      @    185.199.109.153
+       A      @    185.199.110.153
+       A      @    185.199.111.153
+       CNAME  www  <github-username>.github.io
 
-       cd personal-site
-       SERVER=root@YOUR_DROPLET_IP ./deploy/deploy-site.sh
+5. Wait for DNS to resolve, then tick **Enforce HTTPS**.
 
-7. Open https://your-domain.me; the training page is https://your-domain.me/training/
-   (Basic Auth, noindex).
+Every push to `main` runs `.github/workflows/deploy.yml`, which builds with
+`npm ci` + `npm run build` and publishes `dist/`.
 
-### SSH public key
+## Private training page (not on GitHub Pages)
 
-    ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEGSdlJmOIeOa2+x4Nv8DCraizglVsIKdxVaPk4pWIIK
+GitHub Pages only serves public content, so the training log is deliberately not
+deployed with the site. `src/data/site.ts` has `training: ''`, which hides the
+Training nav link and the home-page CTA; set it to the real URL once that exists.
 
-## Real-time training sync
+Two options:
 
-The training report is generated on the Mac from the iCloud AutoSync folder, then
-pushed to the server. It does not expose raw health data.
+- **€0** — keep the log on the Mac and reach it from your phone over Tailscale.
+  Health data never leaves the house.
+- **~€4/month** — Hetzner CAX11 + Caddy + Basic Auth. `deploy/` already contains
+  the Caddyfile example, server setup, rsync deploy and the training sync/watcher.
+  Put it on a subdomain (e.g. `log.lajiaomian.codes`), never on the public site.
 
-    cd personal-site
-    SERVER=root@YOUR_DROPLET_IP ./deploy/sync-training.sh
+## Privacy notes
 
-For near-real-time updates:
-
-    brew install fswatch
-    SERVER=root@YOUR_DROPLET_IP ./deploy/watch-training.sh
-
-To run the watcher automatically at login (Mac must be awake):
-
-    SERVER=root@YOUR_DROPLET_IP ./deploy/install-watcher.sh
-
-The watcher debounces changes and regenerates the **current week** report. For the
-weekly PDF routine, the DSH schedule at Monday 08:00 remains the source of truth.
-
-If you want true real-time without the Mac, switch Health Auto Export to its REST
-API automation and POST JSON directly to a small FastAPI endpoint. That is a larger
-change; the iCloud pipeline is the first version.
-
-## Security / privacy
-
-- Public site: CV, photos, projects, articles. No health data.
-- /training/* is behind Caddy Basic Auth and X-Robots-Tag: noindex.
-- Do not put raw .hae files or reports/ in this repo.
-- After SSH keys work, disable password login in /etc/ssh/sshd_config.
-- Back up /srv and /etc/caddy regularly (restic/Borg to a Hetzner Storage Box).
-- For stricter access, replace Basic Auth with Tailscale Serve or Cloudflare Access.
+- Public site: CV, photos, projects, articles. **No health data.**
+- Never commit raw `.hae` files or `reports/` (already in `.gitignore`).
+- If the training page is hosted: Basic Auth + `X-Robots-Tag: noindex`, EU host,
+  and no raw data on the server — only generated reports.
+- `robots.txt` keeps `/training/` disallowed for when the private page moves.
 
 ## Costs
 
-- DigitalOcean: $6/month from the $200 student credit. The credit expires after 1 year,
-  so plan to move to Hetzner CAX11 later if needed.
-- Domain: Namecheap .me free for one year via Student Pack; renew around €10–15/year.
-- Caddy, Astro, Git: free/open source.
+- GitHub Pages: free.
+- Domain: `.codes` registered at Name.com; if it came from the GitHub Student Pack
+  the first year is free — renew before it expires.
+- Optional private server: ~€4/month (Hetzner CAX11). The Student Pack's old
+  DigitalOcean $200 credit is **no longer offered**, so don't plan around it.

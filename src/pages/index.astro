@@ -77,13 +77,15 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
           running dynamics, sleep, HRV, and a baseline that stays honest. The public
           site is open; the training log is not.
         </p>
-        <a class="button" href={site.training}>Open private log <span class="arrow">↗</span></a>
+        {site.training && (
+          <a class="button" href={site.training}>Open private log <span class="arrow">↗</span></a>
+        )}
       </div>
       <div class="training-aside">
         <div class="training-mini">
           <span>Latest report</span><b>Updated weekly</b>
           <span>Data source</span><b>Health Auto Export → iCloud</b>
-          <span>Access</span><b>Password protected · noindex</b>
+          <span>Access</span><b>Private · not public</b>
         </div>
         <div class="training-mini">
           <span>Built with</span><b>Python · SVG · Caddy</b>

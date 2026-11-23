@@ -2,7 +2,7 @@
   email karwinluo@outlook.com
 }
 
-jiamingluo.me {
+lajiaomian.codes {
   encode zstd gzip
   root * /srv/personal-site/current
 
@@ -22,6 +22,6 @@ jiamingluo.me {
   }
 }
 
-www.jiamingluo.me {
-  redir https://jiamingluo.me{uri} permanent
+www.lajiaomian.codes {
+  redir https://lajiaomian.codes{uri} permanent
 }

@@ -15,9 +15,11 @@ const isActive = (href: string) => path === href || path.startsWith(href);
       {site.nav.map((item) => (
         <a href={item.href} class:list={{ active: isActive(item.href) }}>{item.label}</a>
       ))}
-      <a class="training-link" href={site.training}>
-        <span class="lock" aria-hidden="true">●</span> Training
-      </a>
+      {site.training && (
+        <a class="training-link" href={site.training}>
+          <span class="lock" aria-hidden="true">●</span> Training
+        </a>
+      )}
     </nav>
 
     <details class="mobile-menu">
@@ -26,7 +28,9 @@ const isActive = (href: string) => path === href || path.startsWith(href);
         {site.nav.map((item) => (
           <a href={item.href} class:list={{ active: isActive(item.href) }}>{item.label}</a>
         ))}
-        <a href={site.training}>Training <span aria-hidden="true">↗</span></a>
+        {site.training && (
+          <a href={site.training}>Training <span aria-hidden="true">↗</span></a>
+        )}
       </div>
     </details>
   </div>
