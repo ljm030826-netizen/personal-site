@@ -6,12 +6,12 @@ import { site } from '../data/site';
 <BaseLayout title="简历" description="Jiaming Luo 的简历：医学信息学学生，医院 HiWi，数据与医疗 IT。">
   <section class="cv-hero shell">
     <div>
-      <div class="eyebrow">简历 / 2026.11</div>
-      <h1>Jiaming<br /><em>Luo.</em></h1>
+      <div class="eyebrow">医学信息学 · B.Sc. 在读</div>
+      <h1>骆佳铭 <small>Jiaming Luo</small></h1>
       <p class="lede">{cv.summary}</p>
       <div class="cv-actions">
         <button class="button" type="button" onclick="window.print()">打印 / 存为 PDF <span class="arrow">↗</span></button>
-        <a class="button ghost" href={'mailto:' + site.email}>发邮件给我</a>
+        <a class="button ghost" href={'mailto:' + site.email}>电子邮件</a>
       </div>
     </div>
     <aside class="cv-side">
@@ -25,7 +25,7 @@ import { site } from '../data/site';
   <div class="cv-grid shell">
     <div>
       <section class="cv-section">
-        <h2>教育</h2>
+        <h2>教育背景</h2>
         <div class="timeline">
           {cv.education.map((item) => (
             <div class="timeline-item">
@@ -41,7 +41,7 @@ import { site } from '../data/site';
       </section>
 
       <section class="cv-section">
-        <h2>经历</h2>
+        <h2>专业经历</h2>
         <div class="timeline">
           {cv.experience.map((item) => (
             <div class="timeline-item">
@@ -98,17 +98,9 @@ import { site } from '../data/site';
         </div>
       </section>
 
-      <section class="cv-section">
-        <h2>别处</h2>
-        <div class="skill-block">
-          <h3>日记</h3>
-          <p><a href="/diary/">从朋友圈搬过来的长文。</a></p>
-        </div>
-        <div class="skill-block">
-          <h3>作品</h3>
-          <p><a href="/projects/">2024–2026 年做过的项目。</a></p>
-        </div>
-      </section>
+
     </aside>
   </div>
 </BaseLayout>
+
+<style>.cv-hero h1{font:600 clamp(2.5rem,5vw,4rem)/1.25 var(--body);letter-spacing:0}.cv-hero small{display:block;font-size:.48em;color:var(--muted);font-weight:400}.cv-hero .lede{font:400 1rem/1.8 var(--body);max-width:30em}.cv-hero{padding-block:3rem}.timeline-period{font-variant-numeric:tabular-nums}@media print{.cv-actions{display:none}.timeline-item{break-inside:avoid}}</style>

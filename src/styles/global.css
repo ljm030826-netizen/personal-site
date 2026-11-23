@@ -353,3 +353,10 @@ h1, h2, h3, h4 { margin: 0; font-weight: 600; }
   .timeline-item { break-inside: avoid; }
   @page { size: A4; margin: 14mm; }
 }
+
+.photo-page .photo-grid{display:block;columns:2;column-gap:clamp(1.5rem,4vw,4rem)}
+.photo-page .photo-item{break-inside:avoid;margin:0 0 2.4rem;background:transparent!important;min-height:0}
+.photo-page .photo-item img{height:auto;filter:none;transform:none}
+.photo-page .photo-item figcaption{position:static;opacity:1;background:none;color:var(--ink);padding:.6rem 0 0}
+.photo-page .photo-item figcaption span:last-child{color:var(--muted)}
+@media(max-width:650px){.photo-page .photo-grid{columns:1}}
