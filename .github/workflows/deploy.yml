@@ -21,6 +21,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Enable and configure Pages
+        uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
@@ -45,5 +50,16 @@ jobs:
     runs-on: ubuntu-latest
     environment: github-pages
     steps:
+      - name: Set custom domain
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          curl -s -X PUT \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages" \
+            -d '{"cname":"lajiaomian.codes","build_type":"workflow"}'
+
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
