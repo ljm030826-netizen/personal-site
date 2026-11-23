@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { cv } from '../data/cv';
+import { site } from '../data/site';
+---
+<BaseLayout title="CV" description="Curriculum vitae of Jiaming Luo, medical informatics student.">
+  <section class="cv-hero shell">
+    <div>
+      <div class="eyebrow">Curriculum vitae / 2026</div>
+      <h1>Jiaming<br /><em>Luo.</em></h1>
+      <p class="lede">{cv.summary}</p>
+      <div class="cv-actions">
+        <button class="button" type="button" onclick="window.print()">Print / save PDF <span class="arrow">↗</span></button>
+        <a class="button ghost" href={`mailto:${site.email}`}>Email me</a>
+      </div>
+    </div>
+    <aside class="cv-side">
+      <div><b>Location</b><br />{site.location}</div>
+      <div><b>Email</b><br /><a href={`mailto:${site.email}`}>{site.email}</a></div>
+      <div><b>Languages</b><br />German · English · Chinese</div>
+      <div><b>Open to</b><br />Working student · internship · data / software projects</div>
+    </aside>
+  </section>
+
+  <div class="cv-grid shell">
+    <div>
+      <section class="cv-section">
+        <h2>Education</h2>
+        <div class="timeline">
+          {cv.education.map((item) => (
+            <div class="timeline-item">
+              <div class="timeline-period">{item.period}</div>
+              <div>
+                <h3>{item.title}</h3>
+                <div class="timeline-org">{item.org}</div>
+                <p class="timeline-detail">{item.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2>Experience</h2>
+        <div class="timeline">
+          {cv.experience.map((item) => (
+            <div class="timeline-item">
+              <div class="timeline-period">{item.period}</div>
+              <div>
+                <h3>{item.title}</h3>
+                <div class="timeline-org">{item.org}</div>
+                <p class="timeline-detail">{item.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+
+    <aside>
+      <section class="cv-section">
+        <h2>Skills</h2>
+        {cv.skills.map((block) => (
+          <div class="skill-block">
+            <h3>{block.group}</h3>
+            <p>{block.items.join(' · ')}</p>
+          </div>
+        ))}
+      </section>
+
+      <section class="cv-section">
+        <h2>Interests</h2>
+        <div class="interests">
+          {cv.interests.map((item) => <span>{item}</span>)}
+        </div>
+      </section>
+
+      <section class="cv-section">
+        <h2>Elsewhere</h2>
+        <div class="skill-block">
+          <h3>Writing</h3>
+          <p><a href="/blog/">Notes on health data, software, and study.</a></p>
+        </div>
+        <div class="skill-block">
+          <h3>Projects</h3>
+          <p><a href="/projects/">Selected work, 2024–2026.</a></p>
+        </div>
+      </section>
+    </aside>
+  </div>
+</BaseLayout>

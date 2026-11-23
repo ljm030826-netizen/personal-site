@@ -1,0 +1,19 @@
+---
+interface Props {
+  photos: any[];
+  limit?: number;
+}
+const { photos, limit } = Astro.props;
+const items = limit ? photos.slice(0, limit) : photos;
+---
+<div class="photo-grid">
+  {items.map((photo) => (
+    <figure class:list={['photo-item', photo.span]}>
+      <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+      <figcaption>
+        <span>{photo.caption}</span>
+        <span>{photo.meta}</span>
+      </figcaption>
+    </figure>
+  ))}
+</div>

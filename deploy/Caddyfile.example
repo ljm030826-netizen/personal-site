@@ -1,0 +1,27 @@
+{
+  email karwinluo@outlook.com
+}
+
+jiamingluo.me {
+  encode zstd gzip
+  root * /srv/personal-site/current
+
+  handle_path /training/* {
+    basic_auth {
+      karwin REPLACE_WITH_CADDY_HASH
+    }
+    root * /srv/training
+    file_server
+    header Cache-Control "no-store"
+    header X-Robots-Tag "noindex, nofollow"
+  }
+
+  handle {
+    try_files {path} {path}.html {path}/ /404.html
+    file_server
+  }
+}
+
+www.jiamingluo.me {
+  redir https://jiamingluo.me{uri} permanent
+}

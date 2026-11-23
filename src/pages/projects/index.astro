@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { getCollection } from 'astro:content';
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+<BaseLayout title="Work" description="Selected projects by Jiaming Luo.">
+  <section class="page-hero shell">
+    <div class="eyebrow">Selected work / 2024 — 2026</div>
+    <h1>Things I<br />made.</h1>
+    <p class="lede">A training diagnostic, a tolerant health-data reader, and this website. More experiments live in the notes.</p>
+  </section>
+  <section class="page-body shell">
+    <div class="project-list">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+</BaseLayout>

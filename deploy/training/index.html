@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Training log — Jiaming Luo</title>
+<style>
+  :root { --paper:#f4f0e8; --ink:#191816; --muted:#6f6a61; --line:#ddd5c8; --accent:#b94f2c; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--paper); color:var(--ink); font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",sans-serif; }
+  .wrap { min-height:100vh; display:grid; place-items:center; padding:28px; }
+  .card { width:min(760px,100%); border:1px solid var(--line); background:#faf7f1; padding:44px; }
+  .eyebrow { font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); }
+  h1 { font-family:"Iowan Old Style",Georgia,serif; font-size:clamp(42px,8vw,74px); line-height:.95; letter-spacing:-.05em; margin:18px 0 18px; }
+  p { color:var(--muted); font-size:13px; line-height:1.75; max-width:560px; }
+  .actions { display:flex; flex-wrap:wrap; gap:9px; margin:26px 0 24px; }
+  a.button { display:inline-flex; gap:9px; align-items:center; border:1px solid var(--ink); padding:10px 14px; border-radius:999px; color:var(--ink); text-decoration:none; font-size:12px; font-weight:600; }
+  a.button:hover { background:var(--ink); color:var(--paper); }
+  a.button.ghost { border-color:var(--line); color:var(--muted); }
+  a.button.ghost:hover { border-color:var(--ink); background:transparent; color:var(--ink); }
+  .meta { display:grid; grid-template-columns:1fr 1fr; gap:12px; border-top:1px solid var(--line); padding-top:18px; margin-top:12px; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:10px; color:var(--muted); }
+  .meta b { display:block; margin-top:3px; font-family:-apple-system,sans-serif; font-size:12px; color:var(--ink); font-weight:600; }
+  @media (max-width:560px) { .card{padding:26px} .meta{grid-template-columns:1fr} }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card">
+      <div class="eyebrow">Private / training diagnostic</div>
+      <h1>Training<br>log.</h1>
+      <p>Weekly training and recovery analysis from my own Apple Health data. This page is not indexed and is not linked from the public site except through a protected route.</p>
+      <div class="actions">
+        <a class="button" href="latest.html">Open latest report ↗</a>
+        <a class="button ghost" href="latest.pdf">PDF</a>
+        <a class="button ghost" href="/">Back to site</a>
+      </div>
+      <div class="meta">
+        <div>Latest sync <b id="synced">—</b></div>
+        <div>Report week <b id="week">—</b></div>
+        <div>Source <b>Health Auto Export → iCloud</b></div>
+        <div>Model <b>TRIMP · ACWR · HRV · sleep</b></div>
+      </div>
+    </section>
+  </main>
+  <script>
+    fetch('status.json', { cache: 'no-store' })
+      .then((r) => r.ok ? r.json() : null)
+      .then((data) => {
+        if (!data) return;
+        document.getElementById('synced').textContent = data.generated_at || '—';
+        document.getElementById('week').textContent = data.week || '—';
+      })
+      .catch(() => {});
+  </script>
+</body>
+</html>

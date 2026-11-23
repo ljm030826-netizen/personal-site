@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SectionHead from '../components/SectionHead.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import PostCard from '../components/PostCard.astro';
+import PhotoGrid from '../components/PhotoGrid.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../data/site';
+import { photos } from '../data/photos';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime()
+);
+---
+<BaseLayout>
+  <section class="hero-home shell">
+    <div class="hero-copy">
+      <div class="eyebrow">Medical informatics · Heilbronn, Germany</div>
+      <h1 class="hero-title">Jiaming<br /><em>Luo.</em></h1>
+      <p class="hero-lede">
+        I study how health care, data, and software meet. I build small, honest tools:
+        a training diagnostic from Apple Health data, a few web experiments, and this site.
+      </p>
+      <div class="hero-actions">
+        <a class="button" href="/projects/">Selected work <span class="arrow">↗</span></a>
+        <a class="button ghost" href="/cv/">Read CV</a>
+        <a class="button ghost" href={`mailto:${site.email}`}>Say hello</a>
+      </div>
+      <div class="hero-facts">
+        <div><span>Based in</span><b>Heilbronn, Germany</b></div>
+        <div><span>Studying</span><b>Medical informatics</b></div>
+        <div><span>Open to</span><b>Working student roles</b></div>
+      </div>
+    </div>
+    <aside class="portrait-card">
+      <img src="/photos/portrait.svg" alt="Portrait placeholder for Jiaming Luo" width="640" height="800" />
+      <div class="portrait-caption"><span>Heilbronn / 49.14° N</span><span>Open to work</span></div>
+    </aside>
+  </section>
+
+  <div class="shell">
+    <div class="now-strip">
+      <div class="now-item"><span class="now-dot"></span><span><b>Now</b> — B.Sc. Medical Informatics, Heidelberg & Heilbronn</span></div>
+      <div class="now-item"><span class="now-dot"></span><span><b>Building</b> — a private training diagnostic</span></div>
+      <div class="now-item"><span class="now-dot"></span><span><b>Learning</b> — health data, interfaces, and German</span></div>
+    </div>
+  </div>
+
+  <section class="home-section shell">
+    <SectionHead index="01" title="Selected work" note="Three things I have been building" />
+    <div class="work-grid">
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </div>
+  </section>
+
+  <section class="home-section shell">
+    <SectionHead index="02" title="Writing" note="Notes from the middle of the process" />
+    <div class="post-list">
+      {posts.map((post) => <PostCard post={post} />)}
+    </div>
+  </section>
+
+  <section class="home-section shell">
+    <SectionHead index="03" title="Photos" note="A small visual diary" />
+    <PhotoGrid photos={photos} limit={4} />
+    <div style="margin-top:14px"><a class="button ghost" href="/photos/">All photos <span class="arrow">↗</span></a></div>
+  </section>
+
+  <section class="shell">
+    <div class="training-callout">
+      <div>
+        <div class="eyebrow">Private / updated from Apple Health</div>
+        <h2>Training is data.<br />Recovery is context.</h2>
+        <p>
+          A weekly diagnostic built from my own Apple Health export: training load,
+          running dynamics, sleep, HRV, and a baseline that stays honest. The public
+          site is open; the training log is not.
+        </p>
+        <a class="button" href={site.training}>Open private log <span class="arrow">↗</span></a>
+      </div>
+      <div class="training-aside">
+        <div class="training-mini">
+          <span>Latest report</span><b>Updated weekly</b>
+          <span>Data source</span><b>Health Auto Export → iCloud</b>
+          <span>Access</span><b>Password protected · noindex</b>
+        </div>
+        <div class="training-mini">
+          <span>Built with</span><b>Python · SVG · Caddy</b>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

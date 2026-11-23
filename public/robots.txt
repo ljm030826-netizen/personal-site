@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+Disallow: /training/
+Disallow: /training/*
+
+Sitemap: https://jiamingluo.me/sitemap-index.xml

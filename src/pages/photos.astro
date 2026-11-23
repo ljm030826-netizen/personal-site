@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PhotoGrid from '../components/PhotoGrid.astro';
+import { photos } from '../data/photos';
+---
+<BaseLayout title="Photos" description="A small visual diary by Jiaming Luo.">
+  <section class="page-hero shell">
+    <div class="eyebrow">Photos / a visual diary</div>
+    <h1>Things I<br />noticed.</h1>
+    <p class="lede">Mostly walks, rides, libraries, and the light in between. Replace these placeholders with your own images in <code>public/photos</code> and update <code>src/data/photos.ts</code>.</p>
+  </section>
+  <section class="page-body shell photo-page">
+    <p class="photos-intro">The grid is intentionally simple: no lightbox, no infinite scroll, no tracking. Just images and captions.</p>
+    <PhotoGrid photos={photos} />
+  </section>
+</BaseLayout>
