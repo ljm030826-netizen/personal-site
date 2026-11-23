@@ -4,7 +4,7 @@ export const training = {
   updated: '每周一更新',
   source: 'Apple Health 导出（Health Auto Export → iCloud）',
   intro:
-    '这是我自己写的一份训练诊断：读 Apple Health 的导出数据，把这一周和一条固定的个人基线放在一起看。公开的只有聚合指标，原始数据留在本地。',
+    '这是我自己写脚本、每周跑一次的训练报告。数据从 Apple Health 导出，跟过去几个月的自己比，结论只给我自己看。这里公开的只有指标，原始数据不上网。',
   kpis: [
     { label: '训练次数', value: '3', note: '次 / 本周' },
     { label: '总时长', value: '3h57', note: '小时 · 分钟' },

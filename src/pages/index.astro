@@ -16,20 +16,20 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 <BaseLayout>
   <section class="hero-home shell">
     <div class="hero-copy">
-      <div class="eyebrow">医学信息学 · 德国海尔布隆</div>
+      <div class="eyebrow">医学信息学 · 德国 · 23 岁</div>
       <h1 class="hero-title">Jiaming<br /><em>Luo.</em></h1>
       <p class="hero-lede">
-        我关心医疗、数据与软件交界的地方。做小而诚实的工具：从 Apple Health 数据生成一份训练诊断、几个网页实验，以及这个网站。
+        23 岁，中国出生，在德国读医学信息学。白天上课写代码，晚上要么泡在健身房，要么拎着相机出门，回来把数据画成图，看看这周是不是又练猛了。这个网站就放这些东西：拍的照片、写的东西，还有一份每周更新的训练报告。
       </p>
       <div class="hero-actions">
-        <a class="button" href="/projects/">看看作品 <span class="arrow">↗</span></a>
-        <a class="button ghost" href="/cv/">查看简历</a>
-        <a class="button ghost" href={'mailto:' + site.email}>写信给我</a>
+        <a class="button" href="/projects/">看看我做了什么 <span class="arrow">↗</span></a>
+        <a class="button ghost" href="/cv/">简历</a>
+        <a class="button ghost" href={'mailto:' + site.email}>找我聊</a>
       </div>
       <div class="hero-facts">
         <div><span>所在地</span><b>德国 · 海尔布隆</b></div>
-        <div><span>就读</span><b>医学信息学</b></div>
-        <div><span>状态</span><b>开放学生工岗位</b></div>
+        <div><span>在读</span><b>医学信息学 B.Sc.</b></div>
+        <div><span>平时</span><b>拍照 · 健身 · 折腾数据</b></div>
       </div>
     </div>
     <aside class="portrait-card">
@@ -40,37 +40,37 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
         height="750"
         loading="eager"
       />
-      <div class="portrait-caption"><span>海尔布隆 / 49.14° N</span><span>欢迎联系</span></div>
+      <div class="portrait-caption"><span>海尔布隆 / 49.14° N</span><span>欢迎来找我</span></div>
     </aside>
   </section>
 
   <div class="shell">
     <div class="now-strip">
-      <div class="now-item"><span class="now-dot"></span><span><b>现在</b> — 医学信息学本科，海德堡 &amp; 海尔布隆</span></div>
-      <div class="now-item"><span class="now-dot"></span><span><b>在做</b> — 一个私人的训练诊断</span></div>
-      <div class="now-item"><span class="now-dot"></span><span><b>在学</b> — 健康数据、界面与德语</span></div>
+      <div class="now-item"><span class="now-dot"></span><b>现在</b> — 医学信息学本科，考试月就是日常</div>
+      <div class="now-item"><span class="now-dot"></span><b>在做</b> — 一个能看见自己训练数据的网站</div>
+      <div class="now-item"><span class="now-dot"></span><b>在学</b> — 德语，和怎么把数据讲清楚</div>
     </div>
   </div>
 
   <section class="home-section shell">
-    <SectionHead index="01" title="作品" note="最近在做的三件事" />
+    <SectionHead index="01" title="作品" note="几个自己折腾出来的东西" />
     <div class="work-grid">
       {projects.map((project) => <ProjectCard project={project} />)}
     </div>
   </section>
 
   <section class="home-section shell">
-    <SectionHead index="02" title="文章" note="过程中的记录" />
+    <SectionHead index="02" title="文章" note="不想只留在朋友圈里的东西" />
     <div class="post-list">
       {posts.map((post) => <PostCard post={post} />)}
     </div>
   </section>
 
   <section class="home-section shell">
-    <SectionHead index="03" title="照片" note="一小册视觉日记" />
+    <SectionHead index="03" title="照片" note="拍了不少，挑了些能看的" />
     <PhotoGrid photos={photos} limit={6} />
     <div class="photo-foot">
-      <span>按 Unsplash 浏览量排序</span>
+      <span>按浏览量和下载量排的前 25 张</span>
       <a class="button ghost" href="/photos/">全部照片 <span class="arrow">↗</span></a>
     </div>
   </section>
@@ -79,17 +79,16 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
     <div class="training-callout">
       <div>
         <div class="eyebrow">训练 / 每周更新</div>
-        <h2>训练是数据，<br />恢复是上下文。</h2>
+        <h2>数据不会安慰你，<br />但它至少诚实。</h2>
         <p>
-          每周一次的训练诊断：训练负荷、跑步动态、睡眠、HRV，以及一条不轻易移动的个人基线。
-          这里公开的是聚合后的指标，原始数据留在本地。
+          每周把 Apple Health 的导出翻一遍，算清楚练了多少、睡得怎么样、恢复跟不跟得上。数字和结论可以看，原始数据留在我自己电脑里。
         </p>
-        <a class="button" href={site.training}>看看这周的训练 <span class="arrow">↗</span></a>
+        <a class="button" href={site.training}>看看这周的数据 <span class="arrow">↗</span></a>
       </div>
       <div class="training-aside">
         <div class="training-mini">
           <span>最新报告</span><b>2026 · W47</b>
-          <span>数据来源</span><b>Apple Health → iCloud</b>
+          <span>数据来源</span><b>Apple Health → 自己写的脚本</b>
           <span>访问</span><b>公开摘要</b>
         </div>
         <div class="training-mini">
