@@ -1,21 +1,21 @@
 ---
-title: "Studying medical informatics in Germany"
-description: "Notes from moving between languages, systems, and the spaces where health care meets software."
+title: "在德国读医学信息学"
+description: "在上海读过德语和商科之后，我在德国读医学信息学。真正有意思的不是换专业，而是换一种思考方式。"
 date: 2026-09-05
-tags: ["study", "germany", "medical informatics"]
+tags: ["学习", "德国", "医学信息学"]
 ---
 
-I came to Germany for a degree in medical informatics after studying German and business in Shanghai. The interesting part is not the switch between subjects. It is the switch between ways of thinking.
+我先在上海读德语和工商管理，后来到德国读医学信息学。真正有意思的不是换了一个专业，而是换了一种思考方式。
 
-Medical informatics asks you to hold three things at once: the clinical problem, the data, and the person who has to use the software. A model that is accurate but unusable is not a good model. A dashboard that looks beautiful but hides uncertainty is not a good dashboard.
+医学信息学会要求你同时握住三样东西：临床问题、数据，以及真正要使用这套软件的人。一个准确但没人能用的模型，不是好模型；一个漂亮但把不确定性藏起来的仪表盘，也不是好仪表盘。
 
-## What I am learning
+## 我在学的事
 
-- Ask what decision the data is supposed to support.
-- Write down the assumptions before choosing a metric.
-- Treat privacy as a design constraint, not a compliance checkbox.
-- Make the first version small enough to finish.
+- 先问这份数据要支持哪个决定；
+- 选指标之前，先把假设写下来；
+- 把隐私当成设计约束，而不是合规勾选；
+- 第一版要小到能做完。
 
-## A note on language
+## 关于语言
 
-Studying in German is still work. The vocabulary of medicine and software is its own dialect. But the same rule applies in every language: if you cannot explain the idea simply, you probably have not understood it yet.
+用德语读书仍然是一件费劲的事。医学和软件各自有一套方言。但所有语言里的规则是一样的：如果不能用简单的话讲清楚一个想法，那大概还没真正理解它。

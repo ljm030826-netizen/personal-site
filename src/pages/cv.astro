@@ -3,29 +3,29 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import { cv } from '../data/cv';
 import { site } from '../data/site';
 ---
-<BaseLayout title="CV" description="Curriculum vitae of Jiaming Luo, medical informatics student.">
+<BaseLayout title="简历" description="Jiaming Luo 的简历：医学信息学学生。">
   <section class="cv-hero shell">
     <div>
-      <div class="eyebrow">Curriculum vitae / 2026</div>
+      <div class="eyebrow">简历 / 2026</div>
       <h1>Jiaming<br /><em>Luo.</em></h1>
       <p class="lede">{cv.summary}</p>
       <div class="cv-actions">
-        <button class="button" type="button" onclick="window.print()">Print / save PDF <span class="arrow">↗</span></button>
-        <a class="button ghost" href={`mailto:${site.email}`}>Email me</a>
+        <button class="button" type="button" onclick="window.print()">打印 / 存为 PDF <span class="arrow">↗</span></button>
+        <a class="button ghost" href={'mailto:' + site.email}>发邮件给我</a>
       </div>
     </div>
     <aside class="cv-side">
-      <div><b>Location</b><br />{site.location}</div>
-      <div><b>Email</b><br /><a href={`mailto:${site.email}`}>{site.email}</a></div>
-      <div><b>Languages</b><br />German · English · Chinese</div>
-      <div><b>Open to</b><br />Working student · internship · data / software projects</div>
+      <div><b>所在地</b><br />{site.location}</div>
+      <div><b>邮箱</b><br /><a href={'mailto:' + site.email}>{site.email}</a></div>
+      <div><b>语言</b><br />德语 · 英语 · 中文</div>
+      <div><b>开放</b><br />学生工 · 实习 · 数据 / 软件项目</div>
     </aside>
   </section>
 
   <div class="cv-grid shell">
     <div>
       <section class="cv-section">
-        <h2>Education</h2>
+        <h2>教育</h2>
         <div class="timeline">
           {cv.education.map((item) => (
             <div class="timeline-item">
@@ -41,7 +41,7 @@ import { site } from '../data/site';
       </section>
 
       <section class="cv-section">
-        <h2>Experience</h2>
+        <h2>经历</h2>
         <div class="timeline">
           {cv.experience.map((item) => (
             <div class="timeline-item">
@@ -59,7 +59,7 @@ import { site } from '../data/site';
 
     <aside>
       <section class="cv-section">
-        <h2>Skills</h2>
+        <h2>技能</h2>
         {cv.skills.map((block) => (
           <div class="skill-block">
             <h3>{block.group}</h3>
@@ -69,21 +69,21 @@ import { site } from '../data/site';
       </section>
 
       <section class="cv-section">
-        <h2>Interests</h2>
+        <h2>兴趣</h2>
         <div class="interests">
           {cv.interests.map((item) => <span>{item}</span>)}
         </div>
       </section>
 
       <section class="cv-section">
-        <h2>Elsewhere</h2>
+        <h2>别处</h2>
         <div class="skill-block">
-          <h3>Writing</h3>
-          <p><a href="/blog/">Notes on health data, software, and study.</a></p>
+          <h3>文章</h3>
+          <p><a href="/blog/">关于健康数据、软件和学习的笔记。</a></p>
         </div>
         <div class="skill-block">
-          <h3>Projects</h3>
-          <p><a href="/projects/">Selected work, 2024–2026.</a></p>
+          <h3>作品</h3>
+          <p><a href="/projects/">2024–2026 年做过的项目。</a></p>
         </div>
       </section>
     </aside>

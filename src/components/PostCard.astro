@@ -3,9 +3,9 @@ interface Props {
   post: any;
 }
 const { post } = Astro.props;
-const date = post.data.date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' });
+const date = post.data.date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
 ---
-<a class="post-row" href={`/blog/${post.id}/`}>
+<a class="post-row" href={'/blog/' + post.id + '/'}>
   <span class="post-date">{date}</span>
   <span class="post-title">{post.data.title}</span>
   <span class="post-arrow" aria-hidden="true">↗</span>

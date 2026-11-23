@@ -1,19 +1,23 @@
 ---
-title: "This Website"
-description: "A small, fast personal site for projects, writing, photos, and a private training log."
+title: "这个网站"
+description: "一个轻快的个人网站：作品、文章、照片，以及一份公开的训练摘要。"
 year: "2026"
-role: "Design and build"
-stack: ["Astro", "TypeScript", "Caddy", "Hetzner"]
+role: "设计与实现"
+stack: ["Astro", "TypeScript", "GitHub Pages"]
 featured: true
 order: 3
 ---
 
-This site is deliberately simple: static pages, no tracking, no third-party fonts, no client-side framework. The public part is a place for work, writing, and photos. The training part lives behind a private route and is updated by a small sync script.
+这个网站故意做得很简单：静态页面、没有追踪、没有第三方字体、没有前端框架。公开的部分放作品、文章和照片；训练数据只以聚合摘要的形式出现，原始文件留在本地。
 
-## Why Astro
+## 为什么用 Astro
 
-Most of the site is content. Astro lets me write Markdown for articles and projects, keep the layout in components, and ship almost no JavaScript. The build output is a folder of HTML, CSS, and images that any small server can serve.
+网站大部分是内容。Astro 让我用 Markdown 写文章和项目，把版式放在组件里，最后几乎不输出 JavaScript。构建结果就是一个 HTML、CSS 和图片组成的文件夹，任何静态托管都能放。
 
-## Why a private route
+## 照片怎么处理
 
-Health data is not portfolio material. The training page is protected separately and marked noindex. The public site can be open; the training log does not have to be.
+照片没有下载进仓库，而是用 Unsplash 的官方 API 取「按浏览量排序的前 25 张」，页面上直接引用他们的图片服务。这样原图始终留在 Unsplash，这里只负责展示。
+
+## 为什么训练页只放摘要
+
+健康数据不适合当作品集素材。这里公开的是训练次数、负荷、睡眠、HRV 这类聚合指标，以及每周的结论；原始导出文件和完整报告不放在公网。

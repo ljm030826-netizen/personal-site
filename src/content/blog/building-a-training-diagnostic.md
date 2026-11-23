@@ -1,31 +1,31 @@
 ---
-title: "Building a training diagnostic from Apple Health data"
-description: "What I learned turning a pile of .hae files into a weekly training report that says something useful, not just pretty."
+title: "从 Apple Health 数据做一份训练诊断"
+description: "把一堆 .hae 文件变成一份每周训练报告。我学到的是：画图不难，判断才难。"
 date: 2026-11-20
-tags: ["health data", "python", "training"]
+tags: ["健康数据", "Python", "训练"]
 ---
 
-Most health apps are good at showing numbers. They are less good at telling you what the numbers mean for the next training week.
+大多数健康应用擅长展示数字，却不太擅长告诉你：这些数字对下一周的训练意味着什么。
 
-I built a small diagnostic around my own Apple Health export. It reads the AutoSync folder from Health Auto Export, decodes the .hae files, and produces a weekly report with a baseline, session-level evidence, and a short list of things to change.
+我围绕自己的 Apple Health 导出做了一份小诊断。它读取 Health Auto Export 写进 iCloud 的 AutoSync 文件夹，解开 .hae 文件，然后生成一份周报：个人基线、每次训练的证据，以及一份很短的「下周改什么」清单。
 
-## The interesting part is not the chart
+## 有意思的不是图
 
-A chart of weekly training load is easy. The hard part is deciding what counts as a meaningful change.
+画一张每周训练负荷的图很简单。难的是决定什么才算「有意义的变化」。
 
-A few principles made the report more useful:
+几个让报告更有用的原则：
 
-- compare each session with a personal baseline, not with a generic norm;
-- separate "what happened" from "what it probably means";
-- show the evidence, including the data that is missing;
-- make the next action concrete enough to do on a Tuesday morning.
+- 每次训练跟自己的基线比，而不是跟通用标准比；
+- 把「发生了什么」和「它可能意味着什么」分开写；
+- 把证据摆出来，包括缺失的数据；
+- 让下一步具体到周二早上就能执行。
 
-## What the data can and cannot tell you
+## 数据能说什么，不能说什么
 
-Heart rate, pace, cadence, and sleep are useful signals. They are not a diagnosis. A higher heart rate at the same pace can be fatigue, heat, caffeine, stress, or simply a bad night. The report should say that out loud instead of pretending the number has one meaning.
+心率、配速、步频、睡眠都是有用的信号，但它们不是诊断。同样配速下心率变高，可能是疲劳，也可能是热、咖啡因、压力，或者只是昨晚没睡好。报告应该把这个说出来，而不是假装数字只有一个含义。
 
-The same is true for training load. TRIMP and ACWR are models. They are useful for spotting a spike, not for proving that a session was good or bad.
+训练负荷也一样。TRIMP 和 ACWR 都是模型，它们适合用来发现「突然的跳变」，不适合用来证明某次训练是好是坏。
 
-## What I would keep
+## 我会保留的东西
 
-The weekly rhythm. A report every Monday is a small ritual: look back, adjust one thing, move on. The goal is not a perfect dashboard. The goal is a slightly better decision than last week.
+每周的节奏。每周一看一次报告，是一个很小的仪式：回顾、只改一件事、继续。目标不是完美的仪表盘，而是比上周做一个稍好的决定。

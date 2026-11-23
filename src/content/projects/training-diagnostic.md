@@ -1,28 +1,28 @@
 ---
-title: "Training Diagnostic"
-description: "A weekly training report that reads Apple Health data, compares it with a personal baseline, and explains what to change next."
+title: "训练诊断"
+description: "一份每周训练报告：读 Apple Health 数据，和个人基线比较，并说明下一周该改什么。"
 year: "2026"
-role: "Design, data, code"
+role: "设计、数据与代码"
 stack: ["Python", "SVG", "LZFSE", "HTML/PDF"]
 featured: true
 order: 1
 ---
 
-Training apps show data. I wanted a report that makes a decision.
+训练应用给你数据。我想要一份能做出决定的报告。
 
-The diagnostic reads the AutoSync folder from Health Auto Export, decodes .hae files, and builds a weekly picture from four layers:
+这份诊断读取 Health Auto Export 的 AutoSync 文件夹，解开 .hae 文件，从四个层面搭出每周的图景：
 
-- training sessions and heart-rate zones;
-- performance signals such as pace-to-heart-rate efficiency and decoupling;
-- recovery signals such as HRV, resting heart rate, and sleep stages;
-- a stable personal baseline that every new week is compared against.
+- 训练次数与心率区间；
+- 表现信号，比如配速-心率效率和减速耦联；
+- 恢复信号，比如 HRV、静息心率和睡眠阶段；
+- 一条稳定的个人基线，每一周都拿来对照。
 
-## What makes it different
+## 它不同的地方
 
-The report does not stop at "you trained 3 times". It asks whether the sessions were executed at the right intensity, whether the load jumped too quickly, and whether the recovery signals support the next step.
+报告不会停在「你练了三次」。它会问：这几次的强度对不对？负荷是不是涨得太快？恢复信号支不支持下一步？
 
-It also marks its own uncertainty: two running-dynamics sessions are not a trend, and a decoupling number without a power meter or terrain context is not proof of fitness.
+它也会标出自己的不确定性：两次跑步动态数据构不成趋势；没有功率计和地形信息，一个减速耦联的数字也不能证明体能好坏。
 
-## Stack
+## 技术栈
 
-Python for the data layer, a small SVG chart toolkit for the visuals, and a self-contained HTML file that can be printed to PDF. The private page is served behind Caddy basic auth.
+数据层用 Python，图表有一套很小的 SVG 工具，输出是一份可以打印成 PDF 的自包含 HTML。公开版本只展示聚合指标，原始数据留在本地。

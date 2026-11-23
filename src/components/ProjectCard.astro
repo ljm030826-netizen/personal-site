@@ -6,7 +6,7 @@ interface Props {
 const { project, compact = false } = Astro.props;
 const { title, description, year, role, stack } = project.data;
 ---
-<a class:list={['project-card', { compact }]} href={`/projects/${project.id}/`}>
+<a class:list={['project-card', { compact }]} href={'/projects/' + project.id + '/'}>
   <div class="project-card-top">
     <span class="project-year">{year}</span>
     <span class="project-arrow" aria-hidden="true">↗</span>

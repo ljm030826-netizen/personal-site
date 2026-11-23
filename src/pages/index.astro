@@ -16,79 +16,84 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
 <BaseLayout>
   <section class="hero-home shell">
     <div class="hero-copy">
-      <div class="eyebrow">Medical informatics · Heilbronn, Germany</div>
+      <div class="eyebrow">医学信息学 · 德国海尔布隆</div>
       <h1 class="hero-title">Jiaming<br /><em>Luo.</em></h1>
       <p class="hero-lede">
-        I study how health care, data, and software meet. I build small, honest tools:
-        a training diagnostic from Apple Health data, a few web experiments, and this site.
+        我关心医疗、数据与软件交界的地方。做小而诚实的工具：从 Apple Health 数据生成一份训练诊断、几个网页实验，以及这个网站。
       </p>
       <div class="hero-actions">
-        <a class="button" href="/projects/">Selected work <span class="arrow">↗</span></a>
-        <a class="button ghost" href="/cv/">Read CV</a>
-        <a class="button ghost" href={`mailto:${site.email}`}>Say hello</a>
+        <a class="button" href="/projects/">看看作品 <span class="arrow">↗</span></a>
+        <a class="button ghost" href="/cv/">查看简历</a>
+        <a class="button ghost" href={'mailto:' + site.email}>写信给我</a>
       </div>
       <div class="hero-facts">
-        <div><span>Based in</span><b>Heilbronn, Germany</b></div>
-        <div><span>Studying</span><b>Medical informatics</b></div>
-        <div><span>Open to</span><b>Working student roles</b></div>
+        <div><span>所在地</span><b>德国 · 海尔布隆</b></div>
+        <div><span>就读</span><b>医学信息学</b></div>
+        <div><span>状态</span><b>开放学生工岗位</b></div>
       </div>
     </div>
     <aside class="portrait-card">
-      <img src="/photos/portrait.svg" alt="Portrait placeholder for Jiaming Luo" width="640" height="800" />
-      <div class="portrait-caption"><span>Heilbronn / 49.14° N</span><span>Open to work</span></div>
+      <img
+        src="https://images.unsplash.com/profile-1728162279899-c522b6e2352a?ixlib=rb-4.1.0&crop=faces&fit=crop&w=600&h=750&q=80&auto=format"
+        alt="Jiaming Luo 的肖像"
+        width="600"
+        height="750"
+        loading="eager"
+      />
+      <div class="portrait-caption"><span>海尔布隆 / 49.14° N</span><span>欢迎联系</span></div>
     </aside>
   </section>
 
   <div class="shell">
     <div class="now-strip">
-      <div class="now-item"><span class="now-dot"></span><span><b>Now</b> — B.Sc. Medical Informatics, Heidelberg & Heilbronn</span></div>
-      <div class="now-item"><span class="now-dot"></span><span><b>Building</b> — a private training diagnostic</span></div>
-      <div class="now-item"><span class="now-dot"></span><span><b>Learning</b> — health data, interfaces, and German</span></div>
+      <div class="now-item"><span class="now-dot"></span><span><b>现在</b> — 医学信息学本科，海德堡 &amp; 海尔布隆</span></div>
+      <div class="now-item"><span class="now-dot"></span><span><b>在做</b> — 一个私人的训练诊断</span></div>
+      <div class="now-item"><span class="now-dot"></span><span><b>在学</b> — 健康数据、界面与德语</span></div>
     </div>
   </div>
 
   <section class="home-section shell">
-    <SectionHead index="01" title="Selected work" note="Three things I have been building" />
+    <SectionHead index="01" title="作品" note="最近在做的三件事" />
     <div class="work-grid">
       {projects.map((project) => <ProjectCard project={project} />)}
     </div>
   </section>
 
   <section class="home-section shell">
-    <SectionHead index="02" title="Writing" note="Notes from the middle of the process" />
+    <SectionHead index="02" title="文章" note="过程中的记录" />
     <div class="post-list">
       {posts.map((post) => <PostCard post={post} />)}
     </div>
   </section>
 
   <section class="home-section shell">
-    <SectionHead index="03" title="Photos" note="A small visual diary" />
-    <PhotoGrid photos={photos} limit={4} />
-    <div style="margin-top:14px"><a class="button ghost" href="/photos/">All photos <span class="arrow">↗</span></a></div>
+    <SectionHead index="03" title="照片" note="一小册视觉日记" />
+    <PhotoGrid photos={photos} limit={6} />
+    <div class="photo-foot">
+      <span>按 Unsplash 浏览量排序</span>
+      <a class="button ghost" href="/photos/">全部照片 <span class="arrow">↗</span></a>
+    </div>
   </section>
 
   <section class="shell">
     <div class="training-callout">
       <div>
-        <div class="eyebrow">Private / updated from Apple Health</div>
-        <h2>Training is data.<br />Recovery is context.</h2>
+        <div class="eyebrow">训练 / 每周更新</div>
+        <h2>训练是数据，<br />恢复是上下文。</h2>
         <p>
-          A weekly diagnostic built from my own Apple Health export: training load,
-          running dynamics, sleep, HRV, and a baseline that stays honest. The public
-          site is open; the training log is not.
+          每周一次的训练诊断：训练负荷、跑步动态、睡眠、HRV，以及一条不轻易移动的个人基线。
+          这里公开的是聚合后的指标，原始数据留在本地。
         </p>
-        {site.training && (
-          <a class="button" href={site.training}>Open private log <span class="arrow">↗</span></a>
-        )}
+        <a class="button" href={site.training}>看看这周的训练 <span class="arrow">↗</span></a>
       </div>
       <div class="training-aside">
         <div class="training-mini">
-          <span>Latest report</span><b>Updated weekly</b>
-          <span>Data source</span><b>Health Auto Export → iCloud</b>
-          <span>Access</span><b>Private · not public</b>
+          <span>最新报告</span><b>2026 · W47</b>
+          <span>数据来源</span><b>Apple Health → iCloud</b>
+          <span>访问</span><b>公开摘要</b>
         </div>
         <div class="training-mini">
-          <span>Built with</span><b>Python · SVG · Caddy</b>
+          <span>构建方式</span><b>Python · SVG · HTML</b>
         </div>
       </div>
     </div>

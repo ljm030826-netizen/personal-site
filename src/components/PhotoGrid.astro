@@ -1,6 +1,8 @@
 ---
+import type { Photo } from '../data/photos';
+
 interface Props {
-  photos: any[];
+  photos: Photo[];
   limit?: number;
 }
 const { photos, limit } = Astro.props;
@@ -8,8 +10,10 @@ const items = limit ? photos.slice(0, limit) : photos;
 ---
 <div class="photo-grid">
   {items.map((photo) => (
-    <figure class:list={['photo-item', photo.span]}>
-      <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+    <figure class:list={['photo-item', photo.span]} style={'background-color:' + photo.color}>
+      <a href={photo.href} target="_blank" rel="noopener">
+        <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+      </a>
       <figcaption>
         <span>{photo.caption}</span>
         <span>{photo.meta}</span>

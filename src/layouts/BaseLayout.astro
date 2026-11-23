@@ -9,12 +9,12 @@ interface Props {
   description?: string;
 }
 const { title, description = site.description } = Astro.props;
-const pageTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.role}`;
+const pageTitle = title ? title + ' — ' + site.name : site.name + ' — ' + site.role;
 const canonical = new URL(Astro.url.pathname, Astro.site);
-const ogImage = new URL('/photos/portrait.svg', Astro.site);
+const ogImage = 'https://images.unsplash.com/profile-1728162279899-c522b6e2352a?ixlib=rb-4.1.0&crop=faces&fit=crop&w=1200&h=630&q=80&auto=format';
 ---
 <!doctype html>
-<html lang="en">
+<html lang="zh-CN">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -31,7 +31,7 @@ const ogImage = new URL('/photos/portrait.svg', Astro.site);
     <link rel="alternate" type="application/rss+xml" title={site.name} href="/rss.xml" />
   </head>
   <body>
-    <a class="skip-link" href="#main">Skip to content</a>
+    <a class="skip-link" href="#main">跳到正文</a>
     <Header />
     <main id="main">
       <slot />

@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { training } from '../data/training';
+---
+<BaseLayout title="训练" description="每周训练诊断：训练负荷、跑步动态、睡眠与恢复。">
+  <section class="training-hero shell">
+    <div class="eyebrow">训练 / {training.week} · {training.range}</div>
+    <h1>把这一周<br />看仔细。</h1>
+    <p class="lede">{training.intro}</p>
+    <div class="kpi-grid">
+      {training.kpis.map((kpi) => (
+        <div class="kpi">
+          <span>{kpi.label}</span>
+          <b>{kpi.value}</b>
+          <i>{kpi.note}</i>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <div class="training-grid shell">
+    <div class="training-prose">
+      <h2>教练摘要</h2>
+      <ul>
+        {training.summary.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <h2>本周解剖</h2>
+      <ul>
+        {training.sessions.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <h2>恢复信号</h2>
+      <ul>
+        {training.recovery.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <h2>下一阶段</h2>
+      <ul>
+        {training.next.map((item) => <li>{item}</li>)}
+      </ul>
+
+      <h2>基线</h2>
+      <p>{training.baseline.map((b) => b.label + '：' + b.value).join('；')}。</p>
+
+      <div class="training-note">{training.disclaimer}</div>
+    </div>
+
+    <aside class="training-side">
+      <h3>这份报告</h3>
+      <dl>
+        <dt>周期</dt>
+        <dd>{training.week}（{training.range}）</dd>
+        <dt>数据来源</dt>
+        <dd>{training.source}</dd>
+        <dt>更新</dt>
+        <dd>{training.updated} · 由 Mac 上的 weekly_report.py 生成快照</dd>
+        <dt>公开范围</dt>
+        <dd>只有聚合指标，原始健康文件不公开</dd>
+      </dl>
+      <p><a class="button ghost" href="/projects/training-diagnostic/">这个诊断是怎么做的 <span class="arrow">↗</span></a></p>
+    </aside>
+  </div>
+</BaseLayout>

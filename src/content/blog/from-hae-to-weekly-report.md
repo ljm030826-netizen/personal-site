@@ -1,27 +1,27 @@
 ---
-title: "From .hae files to a weekly report"
-description: "A short tour of the pipeline behind the training page: LZFSE decoding, load models, and a private static report."
+title: "从 .hae 文件到一份周报"
+description: "训练页背后的管道：LZFSE 解码、负荷模型，和一份私有（后来变成公开摘要）的静态报告。"
 date: 2026-10-12
-tags: ["python", "data engineering", "apple health"]
+tags: ["Python", "数据工程", "Apple Health"]
 ---
 
-Health Auto Export writes compressed .hae files into iCloud. The format is not meant to be read by hand, but it is readable once you know what is inside: LZFSE or LZVN compressed JSON, with a small uncompressed block for tiny payloads.
+Health Auto Export 会把压缩过的 .hae 文件写进 iCloud。这个格式本来不是给人手动读的，但知道里面是什么之后就还好：LZFSE 或 LZVN 压缩的 JSON，偶尔有一小段未压缩的数据。
 
-The pipeline is deliberately boring:
+管道故意做得很无聊：
 
-1. Watch the AutoSync folder.
-2. Decode the files into Python objects.
-3. Build daily metrics and session summaries.
-4. Compare the current week with an anchored baseline.
-5. Render a self-contained HTML report and a PDF.
-6. Upload the latest report to a private page.
+1. 监听 AutoSync 文件夹；
+2. 把文件解码成 Python 对象；
+3. 生成每日指标和单次训练摘要；
+4. 拿这一周和锚定的基线比；
+5. 渲染一份自包含的 HTML 报告和 PDF；
+6. 把最新报告放到一个页面上。
 
-## Why a static report
+## 为什么用静态报告
 
-A static HTML file is easy to keep private, easy to archive, and easy to open on a phone. It also avoids running a database for a single user. The analysis is a batch job; the website is just a reading surface.
+一个静态 HTML 文件容易保护、容易归档，在手机上也容易打开。它也不需要为一个用户去跑数据库。分析是批处理任务，网站只是一个阅读界面。
 
-## The baseline is the product
+## 基线才是产品
 
-The first version of the report was a dashboard. The second version was a diagnosis. The difference was a baseline: a stable set of personal norms that every new week is compared against. Without it, every chart is just decoration.
+报告的第一版是一个仪表盘，第二版才变成诊断。区别就在基线：一套稳定的个人标准，每一周都拿来对照。没有它，所有图表都只是装饰。
 
-The baseline is stored as JSON. The anchor stays fixed; a rolling baseline updates as new data arrives. That makes it possible to say "this week is different" without moving the goalposts every time.
+基线存成 JSON。锚点固定，滚动基线随新数据更新。这样才能说「这一周不一样」，又不用每次都把标准挪走。

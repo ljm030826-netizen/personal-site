@@ -9,10 +9,11 @@ const year = new Date().getFullYear();
       <div class="footer-note">{site.location} · {site.role}</div>
     </div>
     <div class="footer-links">
-      <a href={`mailto:${site.email}`}>{site.email}</a>
-      <a href="/cv/">CV</a>
+      <a href={'mailto:' + site.email}>{site.email}</a>
+      <a href="/cv/">简历</a>
       <a href="/rss.xml">RSS</a>
+      <a href="https://unsplash.com/@karw1n" rel="me noopener" target="_blank">Unsplash</a>
     </div>
-    <div class="footer-meta">© {year} · built with Astro, served from Germany</div>
+    <div class="footer-meta">© {year} · 用 Astro 构建 · 托管于 GitHub Pages</div>
   </div>
 </footer>

@@ -1,70 +1,64 @@
 export const cv = {
-  headline: 'Medical informatics student, data tinkerer, and occasional photographer.',
+  headline: '医学信息学学生，喜欢折腾数据，偶尔拍照。',
   summary:
-    'I study medical informatics at Heidelberg University and Heilbronn University. My work sits between health data, software engineering, and clear communication: small tools, careful analysis, and interfaces that make complex data usable.',
+    '我在海德堡大学与海尔布隆大学读医学信息学。我的工作横在健康数据、软件工程和清楚的表达之间：做小工具、仔细地分析，把复杂的数据变成能用的界面。',
   education: [
     {
-      period: '2024 — present',
-      title: 'B.Sc. Medical Informatics',
-      org: 'Heidelberg University & Heilbronn University, Germany',
+      period: '2024 — 至今',
+      title: '医学信息学 本科（B.Sc.）',
+      org: '海德堡大学 & 海尔布隆大学，德国',
       detail:
-        'Coursework across programming, databases, statistics, and clinical information systems. Focus on health-data pipelines, privacy, and human-centred interfaces.',
+        '课程覆盖编程、数据库、统计和临床信息系统。关注健康数据管道、隐私与以人为中心的界面。',
     },
     {
       period: '2021 — 2024',
-      title: 'German Studies & Business Administration',
-      org: 'Shanghai International Studies University, China',
+      title: '德语与工商管理',
+      org: '上海外国语大学，中国',
       detail:
-        'German language, business administration, and intercultural communication. Built the language and analytical base for studying and working in Germany.',
+        '德语、工商管理与跨文化沟通。为在德国读书和工作打下语言与分析的基础。',
     },
     {
       period: '2021',
-      title: 'High School Diploma',
-      org: 'Wuhu No. 1 High School, Anhui, China',
-      detail: 'Science track.',
+      title: '高中毕业',
+      org: '芜湖市第一中学，安徽，中国',
+      detail: '理科方向。',
     },
   ],
   experience: [
     {
-      period: 'Dec 2024 — Feb 2025',
-      title: 'Intern, Retail Operations',
-      org: 'Heilbronn Laomi Asia Market, Germany',
+      period: '2024.12 — 2025.02',
+      title: '实习 · 零售运营',
+      org: 'Heilbronn Laomi Asia Market，德国',
       detail:
-        'Cashier operations, goods intake, product presentation, and customer advice. Learned how small operational details decide whether a shop feels calm or chaotic.',
+        '收银、收货、陈列和顾客咨询。学会看见小细节如何决定一家店是安静还是混乱。',
     },
     {
-      period: 'Jul 2022 — Sep 2022',
-      title: 'Intern, Financial Markets',
-      org: 'China Construction Bank, Shanghai',
+      period: '2022.07 — 2022.09',
+      title: '实习 · 金融市场',
+      org: '中国建设银行，上海',
       detail:
-        'Introduction to international currency trading, futures and options, and precious-metal markets. First real contact with risk, positions, and data-driven decisions.',
+        '接触外汇、期货与期权、贵金属市场。第一次真正面对风险、头寸和数据驱动的决定。',
     },
     {
-      period: 'Jul 2021 — Aug 2021',
-      title: 'Part-time, Store Operations',
-      org: 'Qifentian, China',
-      detail:
-        'Drink preparation, stock handling, checkout, and independent shop duty.',
+      period: '2021.07 — 2021.08',
+      title: '兼职 · 门店运营',
+      org: 'Qifentian，中国',
+      detail: '饮品制作、理货、收银和独立看店。',
     },
   ],
   skills: [
     {
-      group: 'Data & code',
+      group: '数据与代码',
       items: ['Python', 'TypeScript / JavaScript', 'SQL', 'Pandas / NumPy', 'Astro', 'Git & Linux'],
     },
     {
-      group: 'Health & analytics',
-      items: [
-        'Apple Health data',
-        'Training load: TRIMP / ACWR',
-        'Data visualisation',
-        'Privacy-aware data pipelines',
-      ],
+      group: '健康与分析',
+      items: ['Apple Health 数据', '训练负荷：TRIMP / ACWR', '数据可视化', '重视隐私的数据管道'],
     },
     {
-      group: 'Languages',
-      items: ['German — TestDaF 17', 'English — fluent', 'Chinese — native'],
+      group: '语言',
+      items: ['德语 — TestDaF 17', '英语 — 流利', '中文 — 母语'],
     },
   ],
-  interests: ['Cycling', 'Running', 'Strength training', 'Photography', 'Volleyball'],
+  interests: ['骑行', '跑步', '力量训练', '摄影', '排球'],
 };
