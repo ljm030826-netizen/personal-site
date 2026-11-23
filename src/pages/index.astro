@@ -1,122 +1,21 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import SectionHead from '../components/SectionHead.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import PostCard from '../components/PostCard.astro';
-import PhotoGrid from '../components/PhotoGrid.astro';
-import { getCollection } from 'astro:content';
-import { site } from '../data/site';
 import { photos } from '../data/photos';
-
-const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
-const posts = (await getCollection('blog', ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
-const allDiaries = (await getCollection('diary', ({ data }) => !data.draft)).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime()
-);
-const diaries = allDiaries.slice(0, 3);
-const fmtDiaryDate = (d: Date) => d.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' });
+import { getCollection } from 'astro:content';
+const entries = (await getCollection('diary', ({data}) => !data.draft)).sort((a,b) => +b.data.date - +a.data.date).slice(0,3);
+const photograph = photos.find(p => p.caption === '巴黎，日落时分的铁塔') ?? photos[0];
 ---
 <BaseLayout>
-  <section class="hero-home shell">
-    <div class="hero-copy">
-      <div class="eyebrow">医学信息学 · 德国 · 23 岁</div>
-      <h1 class="hero-title">Jiaming<br /><em>Luo.</em></h1>
-      <p class="hero-lede">
-        23 岁，中国出生，在德国读医学信息学。白天上课写代码，晚上要么泡在健身房，要么拎着相机出门，回来把数据画成图，看看这周是不是又练猛了。这个网站就放这些东西：拍的照片、写的东西，还有一份每周更新的训练报告。
-      </p>
-      <div class="hero-actions">
-        <a class="button" href="/projects/">看看我做了什么 <span class="arrow">↗</span></a>
-        <a class="button ghost" href="/cv/">简历</a>
-        <a class="button ghost" href={'mailto:' + site.email}>找我聊</a>
-      </div>
-      <div class="hero-facts">
-        <div><span>所在地</span><b>德国 · 海尔布隆</b></div>
-        <div><span>在读</span><b>医学信息学 B.Sc.</b></div>
-        <div><span>平时</span><b>拍照 · 健身 · 折腾数据</b></div>
-      </div>
-    </div>
-    <aside class="portrait-card">
-      <img
-        src="https://images.unsplash.com/photo-1740970361786-7d863333c3cf?ixlib=rb-4.1.0&w=900&h=1125&fit=crop&crop=entropy&q=80&auto=format"
-        alt="海边骑摩托车的人"
-        width="900"
-        height="1125"
-        loading="eager"
-      />
-      <div class="portrait-caption"><span>在路上 / 2026</span><span>不拍自拍</span></div>
-    </aside>
-  </section>
-
-  <div class="shell">
-    <div class="now-strip">
-      <div class="now-item"><span class="now-dot"></span><b>现在</b> — 医学信息学本科，考试月就是日常</div>
-      <div class="now-item"><span class="now-dot"></span><b>在做</b> — 一个能看见自己训练数据的网站</div>
-      <div class="now-item"><span class="now-dot"></span><b>在学</b> — 德语，和怎么把数据讲清楚</div>
-    </div>
+  <div class="folio shell">
+    <header><h1>骆佳铭<small>Jiaming Luo</small></h1><a href="/cv/">医学信息学 · 个人履历 →</a></header>
+    <figure><a href="/photos/"><img src={photograph.src} srcset={photograph.srcset} sizes="(max-width: 720px) 90vw, 65vw" alt={photograph.alt} /></a><figcaption>{photograph.caption}<a href="/photos/">摄影选集 →</a></figcaption></figure>
   </div>
-
-  <section class="home-section shell">
-    <SectionHead index="01" title="作品" note="几个自己折腾出来的东西" />
-    <div class="work-grid">
-      {projects.map((project) => <ProjectCard project={project} />)}
-    </div>
-  </section>
-
-  <section class="home-section shell">
-    <SectionHead index="02" title="文章" note="不想只留在朋友圈里的东西" />
-    <div class="post-list">
-      {posts.map((post) => <PostCard post={post} />)}
-    </div>
-  </section>
-
-  <section class="home-section shell">
-    <SectionHead index="03" title="日记" note="从朋友圈搬过来的长文，原样保留" />
-    <div class="post-list">
-      {diaries.map((entry) => (
-        <a class="post-row" href={'/diary/' + entry.id + '/'}>
-          <span class="post-date">{fmtDiaryDate(entry.data.date)}</span>
-          <span class="post-title">{entry.data.title}</span>
-          <span class="post-arrow" aria-hidden="true">↗</span>
-        </a>
-      ))}
-    </div>
-    <div class="photo-foot">
-      <span>共 {allDiaries.length} 篇 · 只搬长文</span>
-      <a class="button ghost" href="/diary/">全部日记 <span class="arrow">↗</span></a>
-    </div>
-  </section>
-
-  <section class="home-section shell">
-    <SectionHead index="04" title="照片" note="拍了不少，挑了些能看的" />
-    <PhotoGrid photos={photos} limit={6} />
-    <div class="photo-foot">
-      <span>按浏览量和下载量排的前 25 张</span>
-      <a class="button ghost" href="/photos/">全部照片 <span class="arrow">↗</span></a>
-    </div>
-  </section>
-
-  <section class="shell">
-    <div class="training-callout">
-      <div>
-        <div class="eyebrow">训练 / 每周更新</div>
-        <h2>数据不会安慰你，<br />但它至少诚实。</h2>
-        <p>
-          每周把 Apple Health 的导出翻一遍，算清楚练了多少、睡得怎么样、恢复跟不跟得上。数字和结论可以看，原始数据留在我自己电脑里。
-        </p>
-        <a class="button" href={site.training}>看看这周的数据 <span class="arrow">↗</span></a>
-      </div>
-      <div class="training-aside">
-        <div class="training-mini">
-          <span>最新报告</span><b>2026 · W47</b>
-          <span>数据来源</span><b>Apple Health → 自己写的脚本</b>
-          <span>访问</span><b>公开摘要</b>
-        </div>
-        <div class="training-mini">
-          <span>构建方式</span><b>Python · SVG · HTML</b>
-        </div>
-      </div>
-    </div>
-  </section>
+  <section class="shell journal"><h2><a href="/diary/">近日手记</a></h2>{entries.map(e => <a class="post-row" href={'/diary/'+e.id+'/'}><time>{e.data.date.toISOString().slice(0,10)}</time><span>{e.data.title}</span></a>)}</section>
 </BaseLayout>
+<style>
+.folio{display:grid;grid-template-columns:1fr 1.7fr;align-items:end;gap:4vw;padding-block:clamp(2rem,6vw,6rem)}
+.folio header{padding-bottom:2rem}.folio h1{font:500 clamp(3rem,6vw,6rem)/1.12 var(--display);margin-bottom:2rem}.folio small{display:block;font:italic .49em/1.6 var(--display)}
+figure{margin:0}figure img{width:100%;height:auto;max-height:70vh;object-fit:contain;object-position:left bottom}figcaption{display:flex;justify-content:space-between;margin-top:.7rem;font-size:.85rem;color:var(--muted)}
+.journal{padding-bottom:5rem}.journal h2{font-family:var(--display)}time{color:var(--muted)}
+@media(max-width:720px){.folio{grid-template-columns:1fr}.folio header{padding:0}.folio h1{margin-bottom:.75rem}.journal .post-row{display:grid;grid-template-columns:1fr}}
+</style>
