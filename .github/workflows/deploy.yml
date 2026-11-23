@@ -59,7 +59,7 @@ jobs:
             -H "Authorization: Bearer $GH_TOKEN" \
             -H "Accept: application/vnd.github+json" \
             "https://api.github.com/repos/${GITHUB_REPOSITORY}/pages" \
-            -d '{"cname":"lajiaomian.codes","build_type":"workflow"}'
+            -d '{"cname":"lajiaomian.codes","build_type":"workflow","https_enforced":true}'
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4

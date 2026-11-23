@@ -12,7 +12,14 @@ const items = limit ? photos.slice(0, limit) : photos;
   {items.map((photo) => (
     <figure class:list={['photo-item', photo.span]} style={'background-color:' + photo.color}>
       <a href={photo.href} target="_blank" rel="noopener">
-        <img src={photo.src} alt={photo.alt} loading="lazy" decoding="async" />
+        <img
+          src={photo.src}
+          srcset={photo.srcset}
+          sizes="(max-width: 560px) 100vw, (max-width: 900px) 50vw, 33vw"
+          alt={photo.alt}
+          loading="lazy"
+          decoding="async"
+        />
       </a>
       <figcaption>
         <span>{photo.caption}</span>

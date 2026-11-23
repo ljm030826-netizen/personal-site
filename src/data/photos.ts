@@ -1,5 +1,6 @@
 export interface Photo {
   src: string;
+  srcset?: string;
   alt: string;
   caption: string;
   meta: string;
@@ -12,7 +13,8 @@ export interface Photo {
 // 图片以热链方式引用 Unsplash CDN，不下载、不占用仓库空间。
 export const photos: Photo[] = [
   {
-    src: 'https://images.unsplash.com/photo-1772775133324-131c0f747b80?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1772775133324-131c0f747b80?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1772775133324-131c0f747b80?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1772775133324-131c0f747b80?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '花拱门下，薄雾里的城市天际线',
     caption: '花拱门与薄雾城市',
     meta: '2026 · Unsplash',
@@ -21,7 +23,8 @@ export const photos: Photo[] = [
     color: '#26260c',
   },
   {
-    src: 'https://images.unsplash.com/photo-1774084930632-fe6b5d7f785f?ixid=M3wxMTQyMjU5fDB8MXxhbGx8Mnx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1774084930632-fe6b5d7f785f?ixid=M3wxMTQyMjU5fDB8MXxhbGx8Mnx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1774084930632-fe6b5d7f785f?ixid=M3wxMTQyMjU5fDB8MXxhbGx8Mnx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1774084930632-fe6b5d7f785f?ixid=M3wxMTQyMjU5fDB8MXxhbGx8Mnx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '巴黎楼宇后，日落中的埃菲尔铁塔',
     caption: '巴黎，日落时分的铁塔',
     meta: '2026 · Unsplash',
@@ -30,7 +33,8 @@ export const photos: Photo[] = [
     color: '#8c8ca6',
   },
   {
-    src: 'https://images.unsplash.com/photo-1774084930616-fce8eba59264?ixid=M3wxMTQyMjU5fDB8MXxhbGx8M3x8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1774084930616-fce8eba59264?ixid=M3wxMTQyMjU5fDB8MXxhbGx8M3x8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1774084930616-fce8eba59264?ixid=M3wxMTQyMjU5fDB8MXxhbGx8M3x8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1774084930616-fce8eba59264?ixid=M3wxMTQyMjU5fDB8MXxhbGx8M3x8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '塞纳河与埃菲尔铁塔的落日',
     caption: '塞纳河的黄昏',
     meta: '2026 · Unsplash',
@@ -39,7 +43,8 @@ export const photos: Photo[] = [
     color: '#a6a6a6',
   },
   {
-    src: 'https://images.unsplash.com/photo-1772775133231-17697ad11ff8?ixid=M3wxMTQyMjU5fDB8MXxhbGx8NHx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1772775133231-17697ad11ff8?ixid=M3wxMTQyMjU5fDB8MXxhbGx8NHx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1772775133231-17697ad11ff8?ixid=M3wxMTQyMjU5fDB8MXxhbGx8NHx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1772775133231-17697ad11ff8?ixid=M3wxMTQyMjU5fDB8MXxhbGx8NHx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '从公交车窗望出去的城市街道',
     caption: '车窗外的街',
     meta: '2026 · Unsplash',
@@ -48,7 +53,8 @@ export const photos: Photo[] = [
     color: '#0c2626',
   },
   {
-    src: 'https://images.unsplash.com/photo-1774084930657-0492ced3ee10?ixid=M3wxMTQyMjU5fDB8MXxhbGx8NXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1774084930657-0492ced3ee10?ixid=M3wxMTQyMjU5fDB8MXxhbGx8NXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1774084930657-0492ced3ee10?ixid=M3wxMTQyMjU5fDB8MXxhbGx8NXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1774084930657-0492ced3ee10?ixid=M3wxMTQyMjU5fDB8MXxhbGx8NXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '从埃菲尔铁塔的钢架中仰望',
     caption: '铁塔内部',
     meta: '2026 · Unsplash',
@@ -57,7 +63,8 @@ export const photos: Photo[] = [
     color: '#262626',
   },
   {
-    src: 'https://images.unsplash.com/photo-1764099363026-46d0c56f5d1a?ixid=M3wxMTQyMjU5fDB8MXxhbGx8Nnx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1764099363026-46d0c56f5d1a?ixid=M3wxMTQyMjU5fDB8MXxhbGx8Nnx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1764099363026-46d0c56f5d1a?ixid=M3wxMTQyMjU5fDB8MXxhbGx8Nnx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1764099363026-46d0c56f5d1a?ixid=M3wxMTQyMjU5fDB8MXxhbGx8Nnx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '荒漠中的洞穴居所与岩层',
     caption: '荒漠洞穴',
     meta: '2025 · Unsplash',
@@ -66,7 +73,8 @@ export const photos: Photo[] = [
     color: '#c0c0a6',
   },
   {
-    src: 'https://images.unsplash.com/photo-1772775133248-061d7da01e77?ixid=M3wxMTQyMjU5fDB8MXxhbGx8N3x8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1772775133248-061d7da01e77?ixid=M3wxMTQyMjU5fDB8MXxhbGx8N3x8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1772775133248-061d7da01e77?ixid=M3wxMTQyMjU5fDB8MXxhbGx8N3x8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1772775133248-061d7da01e77?ixid=M3wxMTQyMjU5fDB8MXxhbGx8N3x8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '挂红幅的旧楼与茂盛的树',
     caption: '红幅与绿树',
     meta: '2026 · Unsplash',
@@ -75,7 +83,8 @@ export const photos: Photo[] = [
     color: '#26260c',
   },
   {
-    src: 'https://images.unsplash.com/photo-1757663663842-32f761202c54?ixid=M3wxMTQyMjU5fDB8MXxhbGx8OHx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1757663663842-32f761202c54?ixid=M3wxMTQyMjU5fDB8MXxhbGx8OHx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1757663663842-32f761202c54?ixid=M3wxMTQyMjU5fDB8MXxhbGx8OHx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1757663663842-32f761202c54?ixid=M3wxMTQyMjU5fDB8MXxhbGx8OHx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '小巷台阶上跑下来的男孩',
     caption: '跑下台阶的男孩',
     meta: '2025 · Unsplash',
@@ -84,7 +93,8 @@ export const photos: Photo[] = [
     color: '#404040',
   },
   {
-    src: 'https://images.unsplash.com/photo-1759083696193-40be3c5f4ff2?ixid=M3wxMTQyMjU5fDB8MXxhbGx8OXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1759083696193-40be3c5f4ff2?ixid=M3wxMTQyMjU5fDB8MXxhbGx8OXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1759083696193-40be3c5f4ff2?ixid=M3wxMTQyMjU5fDB8MXxhbGx8OXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1759083696193-40be3c5f4ff2?ixid=M3wxMTQyMjU5fDB8MXxhbGx8OXx8fHx8fDF8fDE3OTU0MjUwODN8&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '两个背影望向城市天际线',
     caption: '两个背影',
     meta: '2025 · Unsplash',
@@ -93,7 +103,8 @@ export const photos: Photo[] = [
     color: '#a6c0c0',
   },
   {
-    src: 'https://images.unsplash.com/photo-1761834520770-f8c66275340c?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTB8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1761834520770-f8c66275340c?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTB8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1761834520770-f8c66275340c?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTB8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1761834520770-f8c66275340c?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTB8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '蓝天下两栋安静的楼',
     caption: '蓝天下两栋楼',
     meta: '2025 · Unsplash',
@@ -102,7 +113,8 @@ export const photos: Photo[] = [
     color: '#59a6c0',
   },
   {
-    src: 'https://images.unsplash.com/photo-1756659243098-30b3240f208b?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTF8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1756659243098-30b3240f208b?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTF8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1756659243098-30b3240f208b?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTF8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1756659243098-30b3240f208b?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTF8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '老楼前在街边干活的人',
     caption: '街边的人',
     meta: '2025 · Unsplash',
@@ -111,7 +123,8 @@ export const photos: Photo[] = [
     color: '#c0a673',
   },
   {
-    src: 'https://images.unsplash.com/photo-1693498331944-f4ca17684dfe?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTJ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1693498331944-f4ca17684dfe?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTJ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1693498331944-f4ca17684dfe?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTJ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1693498331944-f4ca17684dfe?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTJ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '一张黑白照片：街灯',
     caption: '黑白街灯',
     meta: '2023 · Unsplash',
@@ -120,7 +133,8 @@ export const photos: Photo[] = [
     color: '#260c0c',
   },
   {
-    src: 'https://images.unsplash.com/photo-1761834520738-f8cab6654a7e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTN8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1761834520738-f8cab6654a7e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTN8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1761834520738-f8cab6654a7e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTN8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1761834520738-f8cab6654a7e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTN8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '窗边的雕像与旋转楼梯',
     caption: '窗边的雕像',
     meta: '2025 · Unsplash',
@@ -129,7 +143,8 @@ export const photos: Photo[] = [
     color: '#735926',
   },
   {
-    src: 'https://images.unsplash.com/photo-1761834520821-043293acb01d?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTR8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1761834520821-043293acb01d?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTR8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1761834520821-043293acb01d?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTR8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1761834520821-043293acb01d?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTR8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '晴天里的露天咖啡座',
     caption: '晴天露天座',
     meta: '2025 · Unsplash',
@@ -138,7 +153,8 @@ export const photos: Photo[] = [
     color: '#0c2626',
   },
   {
-    src: 'https://images.unsplash.com/photo-1772775133241-fe131d0682c1?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTV8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1772775133241-fe131d0682c1?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTV8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1772775133241-fe131d0682c1?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTV8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1772775133241-fe131d0682c1?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTV8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '斑驳墙面上的德文手写字',
     caption: '墙上的德文',
     meta: '2026 · Unsplash',
@@ -147,7 +163,8 @@ export const photos: Photo[] = [
     color: '#a6a6a6',
   },
   {
-    src: 'https://images.unsplash.com/photo-1772775133737-8091c7c9dd27?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTZ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1772775133737-8091c7c9dd27?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTZ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1772775133737-8091c7c9dd27?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTZ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1772775133737-8091c7c9dd27?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTZ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '雾夜里的大楼与街灯',
     caption: '雾夜',
     meta: '2026 · Unsplash',
@@ -156,7 +173,8 @@ export const photos: Photo[] = [
     color: '#262626',
   },
   {
-    src: 'https://images.unsplash.com/photo-1716521024635-8cc84d45f4f2?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTd8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1716521024635-8cc84d45f4f2?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTd8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1716521024635-8cc84d45f4f2?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTd8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1716521024635-8cc84d45f4f2?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTd8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '店门口的一把旧木椅',
     caption: '店门口的椅子',
     meta: '2024 · Unsplash',
@@ -165,7 +183,8 @@ export const photos: Photo[] = [
     color: '#0c260c',
   },
   {
-    src: 'https://images.unsplash.com/photo-1715234919800-8800f4a0762e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTh8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1715234919800-8800f4a0762e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTh8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1715234919800-8800f4a0762e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTh8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1715234919800-8800f4a0762e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTh8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '阳光穿过树叶',
     caption: '树叶间的光',
     meta: '2024 · Unsplash',
@@ -174,7 +193,8 @@ export const photos: Photo[] = [
     color: '#26260c',
   },
   {
-    src: 'https://images.unsplash.com/photo-1694013688232-915c50257ac6?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTl8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1694013688232-915c50257ac6?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTl8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1694013688232-915c50257ac6?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTl8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1694013688232-915c50257ac6?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MTl8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '镜子里一只狗的脸',
     caption: '镜子里的狗',
     meta: '2023 · Unsplash',
@@ -183,7 +203,8 @@ export const photos: Photo[] = [
     color: '#262626',
   },
   {
-    src: 'https://images.unsplash.com/photo-1761834520785-ca17a0275f6d?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjB8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1761834520785-ca17a0275f6d?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjB8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1761834520785-ca17a0275f6d?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjB8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1761834520785-ca17a0275f6d?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjB8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '阳光落进窗边的书架',
     caption: '书架的光',
     meta: '2025 · Unsplash',
@@ -192,7 +213,8 @@ export const photos: Photo[] = [
     color: '#26260c',
   },
   {
-    src: 'https://images.unsplash.com/photo-1757663663831-b08b5408817a?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjF8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1757663663831-b08b5408817a?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjF8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1757663663831-b08b5408817a?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjF8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1757663663831-b08b5408817a?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjF8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '公交车窗里的光与乘客',
     caption: '公交车的午后',
     meta: '2025 · Unsplash',
@@ -201,7 +223,8 @@ export const photos: Photo[] = [
     color: '#0c2626',
   },
   {
-    src: 'https://images.unsplash.com/photo-1755041048734-220eeb50e5ea?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjJ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1755041048734-220eeb50e5ea?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjJ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1755041048734-220eeb50e5ea?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjJ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1755041048734-220eeb50e5ea?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjJ8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '深色背景上的日文',
     caption: '暗处的日文',
     meta: '2025 · Unsplash',
@@ -210,7 +233,8 @@ export const photos: Photo[] = [
     color: '#26260c',
   },
   {
-    src: 'https://images.unsplash.com/photo-1761834520925-cf9e59a4fa8e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjN8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1761834520925-cf9e59a4fa8e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjN8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1761834520925-cf9e59a4fa8e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjN8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1761834520925-cf9e59a4fa8e?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjN8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '窗边的大理石女人雕像',
     caption: '窗边的女人像',
     meta: '2025 · Unsplash',
@@ -219,7 +243,8 @@ export const photos: Photo[] = [
     color: '#26260c',
   },
   {
-    src: 'https://images.unsplash.com/photo-1759899344221-550ad06c38db?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjR8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1759899344221-550ad06c38db?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjR8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1759899344221-550ad06c38db?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjR8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1759899344221-550ad06c38db?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjR8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '蓝色海面上的风力发电机组',
     caption: '海上的风车',
     meta: '2025 · Unsplash',
@@ -228,7 +253,8 @@ export const photos: Photo[] = [
     color: '#c0c0c0',
   },
   {
-    src: 'https://images.unsplash.com/photo-1759899344035-ac8e2d9a45e0?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjV8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1600&q=80&fm=jpg&fit=max&crop=entropy&cs=tinysrgb',
+    src: 'https://images.unsplash.com/photo-1759899344035-ac8e2d9a45e0?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjV8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max',
+    srcset: 'https://images.unsplash.com/photo-1759899344035-ac8e2d9a45e0?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjV8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=900&q=72&auto=format&fit=max  900w, https://images.unsplash.com/photo-1759899344035-ac8e2d9a45e0?ixid=M3wxMTQyMjU5fDB8MXxhbGx8MjV8fHx8fHwxfHwxNzk1NDI1MDgzfA&ixlib=rb-4.1.0&w=1500&q=72&auto=format&fit=max  1500w',
     alt: '晴天的海面与风车',
     caption: '晴天，海与风车',
     meta: '2025 · Unsplash',
